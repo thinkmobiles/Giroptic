@@ -12,7 +12,7 @@ function giroptic_social_customizer( $wp_customize ) {
     $wp_customize->add_section(
         'giroptic_social',
         array(
-            'title'     => 'Social Icons',
+            'title'     => 'General information',
             'priority'  => 203
         )
     );
@@ -105,6 +105,40 @@ function giroptic_social_customizer( $wp_customize ) {
             'section'  => 'giroptic_social',
             'type'     => 'text',
         )
-    );       
+    );
+    
+    
+    
 }
 add_action( 'customize_register', 'giroptic_social_customizer' );
+
+
+/**
+ * Footer copyright
+ */
+function giroptic_copyright_customizer( $wp_customize ) {
+    $wp_customize->add_section(
+        'giroptic_copyright',
+        array(
+            'title'     => 'Copyright',
+            'priority'  => 204
+        )
+    );
+    
+    $wp_customize->add_setting(
+        'giroptic_copyright',
+        array(
+            'sanitize_callback'  => 'zerif_sanitize_text'
+        )
+    );
+    
+    $wp_customize->add_control(
+        'giroptic_copyright',
+        array(
+            'label'    => 'Сopyright',
+            'section'  => 'giroptic_copyright',
+            'type'     => 'text',
+        )
+    );
+}
+add_action( 'customize_register', 'giroptic_copyright_customizer' );
