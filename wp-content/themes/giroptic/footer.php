@@ -28,7 +28,12 @@
         </div>
 
         <p>
-            © 2014 - This is a free website template by <a href="http://www.pixelsbyrick.com">Rick Waalders</a>
+            <?php
+                $giroptic_copyright = get_theme_mod('giroptic_copyright');
+                if($giroptic_copyright){
+                    echo $giroptic_copyright;
+                }
+            ?>
         </p>
     </div>
 </section>

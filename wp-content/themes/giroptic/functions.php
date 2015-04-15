@@ -26,7 +26,29 @@ function register_my_menus() {
 add_action( 'init', 'register_my_menus' );
 
 
+function arphabet_widgets_init() {
+
+	register_sidebar( array(
+		'name'          => 'Home right sidebar',
+		'id'            => 'home_right_1',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+
+}
+add_action( 'widgets_init', 'arphabet_widgets_init' );
+
+wp_enqueue_script('widget-clients', get_template_directory_uri() . '/js/widget-clients.js', FALSE, FALSE, FALSE);
+
 /**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+
+/**
+ * Widgets additions.
+ */
+require get_template_directory() . '/inc/widgets.php';

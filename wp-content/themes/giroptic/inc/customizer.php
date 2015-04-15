@@ -12,7 +12,7 @@ function giroptic_social_customizer( $wp_customize ) {
     $wp_customize->add_section(
         'giroptic_social',
         array(
-            'title'     => 'General information',
+            'title'     => 'Social information',
             'priority'  => 203
         )
     );
@@ -125,20 +125,29 @@ function giroptic_copyright_customizer( $wp_customize ) {
         )
     );
     
+   // copyright
     $wp_customize->add_setting(
         'giroptic_copyright',
         array(
-            'sanitize_callback'  => 'zerif_sanitize_text'
+            'default'      => 'All right is reselve',
+            'sanitize_callback'  => 'geroptic_sanitize_text'
         )
     );
-    
     $wp_customize->add_control(
         'giroptic_copyright',
         array(
-            'label'    => 'Сopyright',
+            'label'    => 'Copyright text',
             'section'  => 'giroptic_copyright',
             'type'     => 'text',
         )
     );
 }
 add_action( 'customize_register', 'giroptic_copyright_customizer' );
+
+
+
+function geroptic_sanitize_text( $input ) {
+
+    return wp_kses_post( force_balance_tags( $input ) );
+
+}
