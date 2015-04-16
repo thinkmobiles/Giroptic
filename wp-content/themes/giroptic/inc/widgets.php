@@ -5,101 +5,13 @@
 
 /* * ************************ */
 
-add_action('init', 'sample_widget::check_widget');
-
 add_action('widgets_init', 'giroptic_register_widgets');
 
 function giroptic_register_widgets() {
-    register_widget('zerif_clients_widget');
     register_widget('homep_widget');
 }
 
-add_action('customize_controls_print_scripts', 'zerif_clients_widget_scripts');
-
-function zerif_clients_widget_scripts() {
-    wp_enqueue_media();
-    wp_enqueue_script('zerif_clients_widget_script', get_template_directory_uri() . '/js/widget-clients.js', false, '1.0', true);
-}
-
-class zerif_clients_widget extends WP_Widget {
-
-    function zerif_clients_widget() {
-
-        $widget_ops = array('classname' => 'zerif_clients');
-
-        $this->WP_Widget('zerif_clients-widget', 'Zerif - Clients widget', $widget_ops);
-    }
-
-    function widget($args, $instance) {
-
-        extract($args);
-
-
-        echo $before_widget;
-        ?>
-
-        <a href="<?php
-        if (!empty($instance['link'])): echo apply_filters('widget_title', $instance['link']);
-        endif;
-        ?>"><img
-                src="<?php
-                if (!empty($instance['image_uri'])): echo esc_url($instance['image_uri']);
-                endif;
-                ?>" alt="Client"></a>
-
-
-
-        <?php
-        echo $after_widget;
-    }
-
-    function update($new_instance, $old_instance) {
-
-        $instance = $old_instance;
-
-        $instance['link'] = strip_tags($new_instance['link']);
-
-        $instance['image_uri'] = strip_tags($new_instance['image_uri']);
-
-        return $instance;
-    }
-
-    function form($instance) {
-        ?>
-        <p>
-            <label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link', 'zerif-lite'); ?></label><br/>
-            <input type="text" name="<?php echo $this->get_field_name('link'); ?>"
-                   id="<?php echo $this->get_field_id('link'); ?>" value="<?php
-                   if (!empty($instance['link'])): echo $instance['link'];
-                   endif;
-                   ?>"
-                   class="widefat"/>
-
-        </p>
-        <p>
-            <label for="<?php echo $this->get_field_id('image_uri'); ?>"><?php _e('Image', 'zerif-lite'); ?></label><br/>
-            <?php
-            if (!empty($instance['image_uri'])) :
-                echo '<img class="custom_media_image_clients" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" /><br />';
-            endif;
-            ?>
-            <input type="text" class="widefat custom_media_url_clients"
-                   name="<?php echo $this->get_field_name('image_uri'); ?>"
-                   id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php
-                   if (!empty($instance['image_uri'])): echo $instance['image_uri'];
-                   endif;
-                   ?>"
-                   style="margin-top:5px;">
-            <input type="button" class="button button-primary custom_media_button_clients"
-                   id="custom_media_button_clients" name="<?php echo $this->get_field_name('image_uri'); ?>"
-                   value="<?php _e('Upload Image', 'zerif-lite'); ?>" style="margin-top:5px;"/>
-        </p>
-        <?php
-    }
-
-    
-
-}
+add_filter( 'widget_name', function( $title ) { return '<b>' . $title . '</b>'; } );
 
 // Creating the widget 
 class homep_widget extends WP_Widget {
@@ -115,26 +27,53 @@ class homep_widget extends WP_Widget {
         );
     }
 
-// Creating widget front-end
-// This is where the action happens
+    
+// FRONT-END Backend 
     public function widget($args, $instance) {
+        $name = apply_filters('widget_name', $instance['name']);
         $title = apply_filters('widget_title', $instance['title']);
         $link = apply_filters('widget_link', $instance['link']);
-// before and after widget arguments are defined by themes
+        $description = apply_filters('widget_description', $instance['description']);
+        $image_uri = esc_url($instance['image_uri']);
+        
         echo $args['before_widget'];
+
+        if (!empty($name))
+            echo $args['before_name'] . $name . $args['after_name'].'<br>';
+        
+        
         if (!empty($link))
-            echo $args['before_link'] . $link . $args['after_link'];
+            echo $args['before_link'] . $link . $args['after_link'].'<br>';
 
         if (!empty($title))
-            echo $args['before_title'] . $title . $args['after_title'];
-
-// This is where you run the code and display the output
-
+            echo $args['before_title'] . $title . $args['after_title'].'<br>';
+            
+        if (!empty($image_uri)):
+    ?>
+            <img
+                src="<?php
+                if (!empty($image_uri)):
+                    echo $image_uri;
+                endif;
+                ?>" 
+                alt="img"
+            ><br>
+    <?php
+        endif;
+        
+        if (!empty($description))
+            echo $args['before_description'] . $description . $args['after_description'];
+        
         echo $args['after_widget'];
     }
 
 // Widget Backend 
     public function form($instance) {
+        if (isset($instance['name'])) {
+            $name = $instance['name'];
+        } else {
+            $name = __('New name', 'homep_widget_domain');
+        }
         if (isset($instance['title'])) {
             $title = $instance['title'];
         } else {
@@ -146,11 +85,30 @@ class homep_widget extends WP_Widget {
         } else {
             $link = __('http://mysite.com', 'homep_widget_domain');
         }
-
+        
+        if (isset($instance['description'])) {
+            $description = $instance['description'];
+        } else {
+            $description = __('Short description', 'homep_widget_domain');
+        }
+        
+        
+        wp_enqueue_script('widget-clients', get_template_directory_uri() . '/js/widget-clients.js', FALSE, FALSE, FALSE);
+// 
 // Widget admin form
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> 
+            <label for="<?php echo $this->get_field_id('name'); ?>"><?php _e('Title:', 'giroptic'); ?></label> 
+            <input 
+                class="widefat" 
+                id="<?php echo $this->get_field_id('name'); ?>" 
+                name="<?php echo $this->get_field_name('name'); ?>" 
+                type="text" 
+                value="<?php echo esc_attr($name); ?>" 
+                />
+        </p>
+        <p>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'giroptic'); ?></label> 
             <input 
                 class="widefat" 
                 id="<?php echo $this->get_field_id('title'); ?>" 
@@ -160,7 +118,7 @@ class homep_widget extends WP_Widget {
                 />
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link:'); ?></label> 
+            <label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link:', 'giroptic'); ?></label> 
             <input 
                 class="widefat" 
                 id="<?php echo $this->get_field_id('link'); ?>" 
@@ -169,16 +127,51 @@ class homep_widget extends WP_Widget {
                 value="<?php echo esc_attr($link); ?>" 
                 />
         </p>
+        <p>
+            <label for="<?php echo $this->get_field_id('image_uri'); ?>"><?php _e('Image', 'giroptic'); ?></label><br/>
 
+            <input type="text" 
+                   class="widefat custom_media_url"
+                   name="<?php echo $this->get_field_name('image_uri'); ?>"
+                   id="<?php echo $this->get_field_id('image_uri'); ?>" 
+                   value="<?php
+                        if (!empty($instance['image_uri'])): 
+                            echo $instance['image_uri'];
+                        endif;
+                   ?>"
+                   style="margin-top:5px;">
+
+            <input 
+                type="button" 
+                class="button button-primary custom_media_button"
+                id="custom_media_button" 
+                name="<?php echo $this->get_field_name('image_uri_button'); ?>"
+                value="<?php _e('Upload Image', 'zerif-lite'); ?>" 
+                style="margin-top:5px;"/>
+        </p>
+        <p>
+            <label for="<?php echo $this->get_field_id('description'); ?>"><?php _e('Short description:', 'giroptic'); ?></label><br/>
+            <textarea
+                id="<?php echo $this->get_field_id('description'); ?>" 
+                class="widefat"
+                name="<?php echo $this->get_field_name('description'); ?>"
+            ><?php echo esc_attr($description); ?></textarea>
+        </p>
 
         <?php
+        if (!empty($instance['image_uri'])) :
+            echo '<img class="custom_media_image" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" /><br />';
+        endif;
     }
 
 // Updating widget replacing old instances with new
     public function update($new_instance, $old_instance) {
         $instance = array();
+        $instance['name'] = (!empty($new_instance['name']) ) ? strip_tags($new_instance['name']) : '';
         $instance['title'] = (!empty($new_instance['title']) ) ? strip_tags($new_instance['title']) : '';
         $instance['link'] = (!empty($new_instance['link']) ) ? strip_tags($new_instance['link']) : '';
+        $instance['image_uri'] = (!empty($new_instance['image_uri']) ) ? strip_tags($new_instance['image_uri']) : '';
+        $instance['description'] = (!empty($new_instance['description']) ) ? strip_tags($new_instance['description']) : '';
         return $instance;
     }
 
