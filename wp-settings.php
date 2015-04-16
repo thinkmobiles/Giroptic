@@ -16,7 +16,7 @@
  * @since 1.0.0
  */
 define( 'WPINC', 'wp-includes' );
-define('FS_METHOD', 'direct');
+
 // Include files required for initialization.
 require( ABSPATH . WPINC . '/load.php' );
 require( ABSPATH . WPINC . '/default-constants.php' );
