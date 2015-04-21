@@ -121,8 +121,15 @@ html, body {
     font-size: 14px;
     padding: 20px 20px 0 0;
 
-    li a {
+    li {
       padding: 0 40px;
+      a {
+        padding: 0;
+
+        &.active {
+          border-bottom: 1px solid #44bbff;
+        }
+      }
     }
     .search {
       background-color: #acacac;
@@ -147,7 +154,7 @@ html, body {
     }
     #logo {
       background-image: url('../image/LOGO_black.png');
-      width: 154px;
+      background-size: 100%;
     }
   }
 
@@ -159,30 +166,57 @@ html, body {
   position: absolute;
   top: 40px;
   left: 0;
-  height: 255px;
+  height: 0px;
   width: 100%;
   background-color: #ffffff;
+  overflow: hidden;
 
   .popup-menu-group {
-    position: absolute;
+    display: none;
     bottom: 30px;
-    width: 100%;
-  }
-  .popup-menu-item {
-    float: left;
-    width: 33.33%;
-    img {
-      margin: 0 auto;
+    width: 1300px;
+    margin: 90px auto 0 auto;
+
+    &.active {
       display: block;
     }
-    label {
-      color: #b0b0b0;
-      margin-top: 20px;
-      text-align: center;
-      text-transform: uppercase;
-      width: 100%;
+
+    &:after {
+      content: '';
+      clear: both;
+      display: table;
+    }
+
+    .popup-menu-item {
+      float: left;
+      width: 33.33%;
+
+      .item-img {
+        vertical-align: middle;
+        height: 65px;
+        //display: table-cell;
+      }
+      img {
+        //width: 80px;
+        margin: 0 auto;
+        display: block;
+      }
+      label {
+        color: #b0b0b0;
+        margin-top: 20px;
+        text-align: center;
+        text-transform: uppercase;
+        width: 100%;
+      }
+    }
+
+    &:last-child {
+      .popup-menu-item {
+        width: 50%;
+      }
     }
   }
+
 }
 #slider {
   background-color: #a7a7a7;
@@ -342,25 +376,25 @@ html, body {
           height: 38px;
           width: 38px;
 
-          &.fb {
+          &.facebook-icon {
             background-image: url('../image/FACEBOOK_icon.png');
             background-repeat: no-repeat;
             background-position: 50%;
             background-size: 100%;
           }
-          &.tw {
+          &.twitter-icon {
             background-image: url('../image/TWITTER_icon.png');
             background-repeat: no-repeat;
             background-position: 50%;
             background-size: 100%;
           }
-          &.gp {
+          &.googleplus-icon {
             background-image: url('../image/GOOGLE-PLUS_icon.png');
             background-repeat: no-repeat;
             background-position: 50%;
             background-size: 100%;
           }
-          &.you {
+          &.youtube-icon {
             background-image: url('../image/YOUTUBE_icon.png');
             background-repeat: no-repeat;
             background-position: 50%;
