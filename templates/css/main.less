@@ -2,22 +2,26 @@
   font-family: Zona-Light; /* Имя шрифта */
   src: url('../fonts/ZonaPro-Light.otf'); /* Путь к файлу со шрифтом */
 }
+
 html, body {
   font-family: "Zona-Light", Arial;
 }
+
 #header {
   background-color: #4b4b4b;
   height: 40px;
   padding-left: 32px;
   position: fixed;
   width: 100%;
+  z-index: 999;
 
-  &>div:after {
+  & > div:after {
     content: '';
     clear: both;
     display: table;
   }
 }
+
 #logo {
   background-image: url('../image/LOGO.png');
   background-repeat: no-repeat;
@@ -28,6 +32,7 @@ html, body {
   position: relative;
   z-index: 5;
 }
+
 .navigation {
   color: #fff;
   line-height: 40px;
@@ -45,7 +50,7 @@ html, body {
 
     li {
       float: left;
-      
+
       a {
         color: #ffffff;
         cursor: pointer;
@@ -56,7 +61,7 @@ html, body {
       }
     }
   }
-  
+
   .search, .language, .social {
     border-left: 1px solid #636363;
     cursor: pointer;
@@ -70,7 +75,7 @@ html, body {
       background-color: #636363;
     }
   }
-  
+
   .search {
     background-image: url('../image/search.png');
     background-repeat: no-repeat;
@@ -98,6 +103,7 @@ html, body {
     background-position: 50%;
   }
 }
+
 #header .first {
   .navigation {
 
@@ -113,6 +119,7 @@ html, body {
     }
   }
 }
+
 #header .second {
   .navigation {
     position: relative;
@@ -149,7 +156,7 @@ html, body {
   }
 
   &.open {
-    .navigation a,.search{
+    .navigation a, .search {
       color: #4b4b4b;
     }
     #logo {
@@ -162,6 +169,7 @@ html, body {
     height: 80px;
   }
 }
+
 .popup-menu {
   position: absolute;
   top: 40px;
@@ -218,60 +226,299 @@ html, body {
   }
 
 }
+
 #slider {
   background-color: #a7a7a7;
   height: 876px;
   margin: 0 -32px;
 }
+
 #main {
   background: linear-gradient(to top, #ffffff, #f0f0f0);
-  padding: 40px 32px 0;
+  padding: 12px 32px;
 
-  .rows {
-    height: 385px;
-    margin-bottom: 26px;
-  }
-  .row-header {
-    font-weight: 100;
-    text-transform: uppercase;
-  }
-  .row-p {
-    margin: 0;
-    font-size: 12px;
-    line-height: 18px;
-  }
-  .full-row {
+  .content {
+    margin: 0 auto;
+    width: 1680px;
 
     &:after {
       content: '';
       clear: both;
       display: table;
     }
+  }
 
-    .img-row, .content-row {
+  .slaid-menu {
+    position: relative;
+    height: 115px;
+    
+    &>div {
+      position: absolute;
+      height: 190px;
+      width: 520px;
+      margin: 15px;
       float: left;
-      width: 50%;
+      bottom: 0;
+    }
+
+    .spec {
+      background-image: url('../image/spec.png');
+      background-position: 0;
+      background-repeat: no-repeat;
+      background-size: auto;
+      left: 0;
+    }
+
+    .las_vegas {
+      background-image: url('../image/las_vegas.png');
+      background-position: 0;
+      background-repeat: no-repeat;
+      background-size: auto;
+      left: 550px;
+    }
+
+    .expertise {
+      background-image: url('../image/expertise.png');
+      background-position: 0;
+      background-repeat: no-repeat;
+      background-size: auto;
+      right: 30px;
     }
   }
-  .white {
-    background-color: #ffffff;
+
+  .block {
+    float: left;
+    margin: 15px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+
+    .img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+
+      &.cams360 {
+        background-image: url('../image/360cams.png');
+        background-position: 10% 50%;
+        background-repeat: no-repeat;
+        background-size: auto 158%;
+      }
+      &.virtual {
+        background-image: url('../image/virtual.png');
+        background-position: 95% 0;
+        background-repeat: no-repeat;
+        background-size: 35%;
+      }
+      &.audio {
+        background-image: url('../image/audio.png');
+        background-position: 0 -50px;
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+      &.stabil {
+        background-image: url('../image/stabil.png');
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: 275px ;
+      }
+      &.licensing {
+        background-image: url('../image/licensing.png');
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        opacity: 0.39;
+      }
+      &.randd {
+        background-image: url('../image/RandD.png');
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: auto ;
+      }
+      &.app {
+        background-image: url('../image/app.png');
+        background-position: 50% 20px;
+        background-repeat: no-repeat;
+        background-size: auto ;
+        opacity: 0.39;
+      }
+      &.develop {
+        background-image: url('../image/develop.png');
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: auto;
+      }
+      &.accessoires {
+        background-image: url('../image/accessoires.png');
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: auto;
+      }
+      &.camera {
+        background-image: url('../image/camera.png');
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: auto;
+      }
+      &.gEYE {
+        background-image: url('../image/g-eye.png');
+        background-position: calc(50% + 50px) 100%;
+        background-repeat: no-repeat;
+        background-size: auto;
+      }
+    }
   }
-  .orange {
-    background-color: #ff6f28;
+
+  .main-title {
+    font-family: "Zona Pro";
+    font-weight: 100;
+    font-size: 30px;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.2;
+    text-align: left;
+    -moz-transform: matrix(1.0062893081761, 0, 0, 1.01571125265393, 0, 0);
+    -webkit-transform: matrix(1.0062893081761, 0, 0, 1.01571125265393, 0, 0);
   }
-  .blue {
-    background-color: #44bbff;
+
+  .main-body {
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+
+    .title {
+      font-size: 23.629px;
+      font-family: "Zona Pro";
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0 0 30px 0;
+      line-height: 1.417;
+      text-align: left;
+      -moz-transform: matrix(1.0062893081761, 0, 0, 1.01571125265393, 0, 0);
+      -webkit-transform: matrix(1.0062893081761, 0, 0, 1.01571125265393, 0, 0);
+    }
+    .body {
+      font-size: 16px;
+      font-family: "Zona Pro";
+      font-weight: 300;
+      color: #ffffff;
+      line-height: 1.5;
+      text-align: left;
+      -moz-transform: matrix(1.0062893081761, 0, 0, 1.01571125265393, 0, 0);
+      -webkit-transform: matrix(1.0062893081761, 0, 0, 1.01571125265393, 0, 0);
+    }
   }
-  .light-blue {
-    background-color: #44bbff;
+
+  .white .main-body {
+    bottom: 132px;
+    .body {
+      width: 50%;
+      float: right;
+      color: #000;
+    }
   }
-  .black {
-    background-color: #120f12;
-  }
-  .grey {
-    background-color: #cccccc;
+
+  &:after {
+    content: '';
+    clear: both;
+    display: table;
   }
 }
+
+.full-block {
+  height: 385px;
+  width: 1615px;
+
+  .img-row, .content-row {
+    width: 50%;
+    overflow: hidden;
+  }
+}
+
+.half-block {
+  height: 385px;
+  width: 795px;
+
+  .main-body {
+    width: 735px;
+
+    .body {
+      width: calc(100%);
+    }
+  }
+}
+
+.third-block {
+  height: 385px;
+  width: 520px;
+
+  .main-body {
+    width: 460px;
+
+    .body {
+      width: calc(100%);
+    }
+  }
+}
+
+.two-thirds {
+  height: 385px;
+  width: 1070px;
+
+  .main-body {
+    width: 1010px;
+
+    .body {
+      width: calc(100%);
+    }
+  }
+}
+
+.two-row {
+  height: 800px;
+
+  .main-body {
+    width: 460px;
+
+    .body {
+      width: calc(100%);
+    }
+  }
+}
+
+.white {
+  background-color: #ffffff;
+}
+
+.orange {
+  background-color: #ff6f28;
+}
+
+.blue {
+  background-color: #44bbff;
+}
+
+.light-blue {
+  background-color: #44bbff;
+}
+
+.black {
+  background-color: #120f12;
+}
+
+.grey {
+  background-color: #cccccc;
+}
+
+.dark-grey {
+  background-color: #777777;
+}
+
 #footer {
   background-color: #cbcbcb;
   padding-top: 34px;
@@ -279,7 +526,7 @@ html, body {
   .footer-row {
     height: 300px;
   }
-  
+
   .footer-container {
     height: 100%;
     margin: 0 auto;
@@ -295,11 +542,11 @@ html, body {
       clear: both;
       display: table;
     }
-    
+
     .column {
       float: left;
       margin-right: 70px;
-      
+
       &.logo-content {
         width: 310px;
 
@@ -319,6 +566,17 @@ html, body {
             border: none;
             outline: none;
           }
+        }
+      }
+
+      li a {
+        color: #ffffff;
+
+        &:hover, &:focus, &:active {
+          color: #ffffff;
+          text-decoration: none;
+          border: none;
+          outline: none;
         }
       }
 
@@ -368,10 +626,9 @@ html, body {
         width: 25%;
 
         a {
+          cursor: pointer;
           display: block;
           margin: 0 auto;
-          border: 2px solid #737373;
-          border-radius: 100%;
           overflow: hidden;
           height: 38px;
           width: 38px;
@@ -381,24 +638,40 @@ html, body {
             background-repeat: no-repeat;
             background-position: 50%;
             background-size: 100%;
+
+            &:hover {
+              background-image: url('../image/FACEBOOK_icon_hover.png');
+            }
           }
           &.twitter-icon {
             background-image: url('../image/TWITTER_icon.png');
             background-repeat: no-repeat;
             background-position: 50%;
             background-size: 100%;
+
+            &:hover {
+              background-image: url('../image/TWITTER_icon_hover.png');
+            }
           }
           &.googleplus-icon {
             background-image: url('../image/GOOGLE-PLUS_icon.png');
             background-repeat: no-repeat;
             background-position: 50%;
             background-size: 100%;
+
+            &:hover {
+              background-image: url('../image/GOOGLE-PLUS_icon_hover.png');
+            }
           }
           &.youtube-icon {
             background-image: url('../image/YOUTUBE_icon.png');
             background-repeat: no-repeat;
             background-position: 50%;
             background-size: 100%;
+
+            &:hover {
+              background-image: url('../image/YOUTUBE_icon_hover.png');
+            }
           }
         }
       }
@@ -428,6 +701,7 @@ html, body {
         background-image: url('../image/email_icon.png');
         background-repeat: no-repeat;
         background-position: 50%;
+        background-color: #ffffff;
         position: absolute;
         display: block;
         margin: 0 auto;
@@ -436,6 +710,7 @@ html, body {
         overflow: hidden;
         height: 38px;
         width: 38px;
+        outline: none;
       }
 
       input {
