@@ -251,21 +251,35 @@ html, body {
   .slaid-menu {
     position: relative;
     height: 115px;
-    
-    &>div {
+
+    & > div {
       position: absolute;
       height: 190px;
       width: 520px;
       margin: 15px;
       float: left;
       bottom: 0;
+      text-transform: uppercase;
+      color: #acacac;
+      font-size: 32px;
+      font-family: "Zona Pro";
+      font-weight: 100;
+      padding: 26px 48px;
+      -moz-transition: height 700ms ease;
+      -o-transition: height 700ms ease;
+      -webkit-transition: height 700ms ease;
+      transition: height 700ms ease;
+
+      &:hover {
+        height: 225px;
+      }
     }
 
     .spec {
       background-image: url('../image/spec.png');
       background-position: 0;
       background-repeat: no-repeat;
-      background-size: auto;
+      background-size: auto 225px;
       left: 0;
     }
 
@@ -273,7 +287,7 @@ html, body {
       background-image: url('../image/las_vegas.png');
       background-position: 0;
       background-repeat: no-repeat;
-      background-size: auto;
+      background-size: auto 225px;
       left: 550px;
     }
 
@@ -281,7 +295,7 @@ html, body {
       background-image: url('../image/expertise.png');
       background-position: 0;
       background-repeat: no-repeat;
-      background-size: auto;
+      background-size: auto 225px;
       right: 30px;
     }
   }
@@ -292,6 +306,10 @@ html, body {
     padding: 30px;
     position: relative;
     overflow: hidden;
+
+    &:hover .withDisc {
+      bottom: 30px;
+    }
 
     .img {
       position: absolute;
@@ -323,7 +341,7 @@ html, body {
         background-image: url('../image/stabil.png');
         background-position: 50%;
         background-repeat: no-repeat;
-        background-size: 275px ;
+        background-size: 275px;
       }
       &.licensing {
         background-image: url('../image/licensing.png');
@@ -336,13 +354,13 @@ html, body {
         background-image: url('../image/RandD.png');
         background-position: 50%;
         background-repeat: no-repeat;
-        background-size: auto ;
+        background-size: auto;
       }
       &.app {
         background-image: url('../image/app.png');
         background-position: 50% 20px;
         background-repeat: no-repeat;
-        background-size: auto ;
+        background-size: auto;
         opacity: 0.39;
       }
       &.develop {
@@ -381,14 +399,13 @@ html, body {
     margin: 0;
     line-height: 1.2;
     text-align: left;
-    -moz-transform: matrix(1.0062893081761, 0, 0, 1.01571125265393, 0, 0);
-    -webkit-transform: matrix(1.0062893081761, 0, 0, 1.01571125265393, 0, 0);
   }
 
   .main-body {
     position: absolute;
     left: 30px;
     bottom: 30px;
+    transition: bottom 800ms ease;
 
     .title {
       font-size: 23.629px;
@@ -399,8 +416,6 @@ html, body {
       margin: 0 0 30px 0;
       line-height: 1.417;
       text-align: left;
-      -moz-transform: matrix(1.0062893081761, 0, 0, 1.01571125265393, 0, 0);
-      -webkit-transform: matrix(1.0062893081761, 0, 0, 1.01571125265393, 0, 0);
     }
     .body {
       font-size: 16px;
@@ -409,8 +424,11 @@ html, body {
       color: #ffffff;
       line-height: 1.5;
       text-align: left;
-      -moz-transform: matrix(1.0062893081761, 0, 0, 1.01571125265393, 0, 0);
-      -webkit-transform: matrix(1.0062893081761, 0, 0, 1.01571125265393, 0, 0);
+      margin-bottom: 30px;
+    }
+    
+    &.withDisc {
+      bottom: -43px;
     }
   }
 
@@ -428,15 +446,19 @@ html, body {
     clear: both;
     display: table;
   }
+
 }
 
 .full-block {
   height: 385px;
   width: 1615px;
 
-  .img-row, .content-row {
-    width: 50%;
-    overflow: hidden;
+  .main-body {
+    //width: 735px;
+
+    .body {
+      width: calc(50%);
+    }
   }
 }
 
@@ -517,6 +539,16 @@ html, body {
 
 .dark-grey {
   background-color: #777777;
+}
+.discover {
+  display: inline-block;
+  cursor: pointer;
+  height: 38px;
+  width: 155px;
+  background-image: url('../image/discover.png');
+  background-repeat: no-repeat;
+  text-decoration: none;
+  outline: none;
 }
 
 #footer {
