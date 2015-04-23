@@ -1,4 +1,8 @@
 @font-face {
+  font-family: "Zona Pro"; /* Имя шрифта */
+  src: url('../fonts/ZonaPro.otf'); /* Путь к файлу со шрифтом */
+}
+@font-face {
   font-family: Zona-Light; /* Имя шрифта */
   src: url('../fonts/ZonaPro-Light.otf'); /* Путь к файлу со шрифтом */
 }
@@ -8,12 +12,15 @@ html, body {
 }
 
 #header {
-  background-color: #4b4b4b;
-  height: 40px;
-  padding-left: 32px;
-  position: fixed;
+  position: absolute;
   width: 100%;
   z-index: 999;
+
+  &:after {
+    content: '';
+    clear: both;
+    display: table;
+  }
 
   & > div:after {
     content: '';
@@ -22,7 +29,28 @@ html, body {
   }
 }
 
-#logo {
+#scroll-header {
+  position: fixed;
+  background-color: #4b4b4b;
+  height: 40px;
+  padding-left: 32px;
+  width: 100%;
+  z-index: 999;
+  top: -40px;
+  -moz-transition: top 500ms ;
+  -o-transition: top 500ms ;
+  -webkit-transition: top 500ms ;
+  transition: top 500ms ;
+
+  &.fast {
+    -moz-transition: top 100ms ;
+    -o-transition: top 100ms ;
+    -webkit-transition: top 100ms ;
+    transition: top 100ms ;
+  }
+}
+
+.logo {
   background-image: url('../image/LOGO.png');
   background-repeat: no-repeat;
   background-position: 0 50%;
@@ -69,7 +97,7 @@ html, body {
     height: 40px;
     line-height: 40px;
     padding: 0 10px;
-    width: 40px;
+    width: 55px;
 
     &:hover {
       background-color: #636363;
@@ -84,7 +112,7 @@ html, body {
   }
 
   .language {
-    padding: 0 5px;
+    text-transform: none;
 
     .arrow-down {
       display: inline-block;
@@ -105,10 +133,13 @@ html, body {
 }
 
 #header .first {
+  background-color: #4b4b4b;
+  padding-left: 32px;
   .navigation {
 
     a {
       padding: 0 40px;
+      text-transform: none;
     }
     .language {
       width: inherit;
@@ -121,6 +152,7 @@ html, body {
 }
 
 #header .second {
+  padding-left: 32px;
   .navigation {
     position: relative;
     z-index: 5;
@@ -159,13 +191,13 @@ html, body {
     .navigation a, .search {
       color: #4b4b4b;
     }
-    #logo {
+    .logo {
       background-image: url('../image/LOGO_black.png');
       background-size: 100%;
     }
   }
 
-  #logo {
+  .logo {
     height: 80px;
   }
 }
@@ -252,17 +284,19 @@ html, body {
     position: relative;
     height: 115px;
 
-    & > div {
+    & > a {
       position: absolute;
+      cursor: pointer;
       height: 190px;
       width: 520px;
       margin: 15px;
       float: left;
       bottom: 0;
       text-transform: uppercase;
+      text-decoration: none;
       color: #acacac;
       font-size: 32px;
-      font-family: "Zona Pro";
+      font-family: "Zona Pro", serif;
       font-weight: 100;
       padding: 26px 48px;
       -moz-transition: height 700ms ease;
@@ -318,6 +352,10 @@ html, body {
       overflow: hidden;
       height: 100%;
       width: 100%;
+      //-webkit-transition: background-size 800ms ease;
+      //-o-transition: background-size 800ms ease;
+      //-moz-transition: background-size 800ms ease;
+      //transition: background-size 800ms ease;
 
       &.cams360 {
         background-image: url('../image/360cams.png');
@@ -399,12 +437,16 @@ html, body {
     margin: 0;
     line-height: 1.2;
     text-align: left;
+    position: relative;
   }
 
   .main-body {
     position: absolute;
     left: 30px;
     bottom: 30px;
+    -webkit-transition: bottom 800ms ease;
+    -o-transition: bottom 800ms ease;
+    -moz-transition: bottom 800ms ease;
     transition: bottom 800ms ease;
 
     .title {
@@ -633,10 +675,11 @@ html, body {
       .logo {
         background-image: url('../image/LOGO_white.png');
         background-repeat: no-repeat;
-        background-position: 50%;
+        background-position: 0 50%;
         height: 48px;
-        width: 159px;
+        width: 100%;
         margin-bottom: 10px;
+        display: block;
       }
     }
   }
