@@ -13,25 +13,31 @@
  *
  * @package WordPress
  */
+define('FS_METHOD', 'direct');
 
+define( 'SUNRISE', 'on' );
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'giroptic');
+//define('DB_NAME', 'phpmyadmin.ovh.net');
 
 /** MySQL database username */
+//define('DB_USER', 'camusvokxjukr');
+
+define('DB_NAME', 'giroptic');
 define('DB_USER', 'root');
-
-/** MySQL database password */
 define('DB_PASSWORD', 'Sasha123');
-
-/** MySQL hostname */
 define('DB_HOST', 'localhost');
 
+/** MySQL database password */
+//define('DB_PASSWORD', 'UkrGiro360');
+
+/** MySQL hostname */
+//define('DB_HOST', 'camusvokxjukr.mysql.db');
 /** Database Charset to use in creating database tables. */
-define('DB_CHARSET', 'utf8');
 
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
+define('DB_CHARSET', 'utf8');
 
 /**#@+
  * Authentication Unique Keys and Salts.
@@ -50,7 +56,12 @@ define('AUTH_SALT',        'qf{DuQZd+yn+u(<X:@}z940w9n6iN;`>w35g}ka2`A1c-)[kKMsZ
 define('SECURE_AUTH_SALT', 'a-sw,OkTR7G%Da=UBxk-TSeH{?=]4YcZ9)-_.-T+KOBrG0!{6X o!aIEJms={Am$');
 define('LOGGED_IN_SALT',   '{JBg^Ul*Kj@Q[I ))s:%/p3>83$Y0eDK-xeita+xN/XR$cIPI||9Y;W^^K8gbAH,');
 define('NONCE_SALT',       'a}g*Zw7z)bfmzVx:BG~+-+|5hKgOP#7#zGqD9fxfxsQ$%Z$C:SBGdjn}+Fa:tk^`');
+define( 'MULTISITE', true );
 
+define('ADMIN_COOKIE_PATH', '/');
+//define('COOKIE_DOMAIN', '');
+define('COOKIEPATH', '');
+define('SITECOOKIEPATH', '');
 /**#@-*/
 
 /**
@@ -70,6 +81,7 @@ $table_prefix  = 'wp_';
  */
 define('WP_DEBUG', false);
 
+
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
@@ -78,3 +90,4 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+
