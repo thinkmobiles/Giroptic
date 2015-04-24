@@ -407,12 +407,13 @@ html, body {
       img {
         display: block;
         margin: 0 auto;
+        max-width: 100%;
       }
 
       &.img-left {
         position: absolute;
         top: 0;
-        left: 30px;
+        дуае: 30px;
         height: 385px;
 
         img {
@@ -469,6 +470,7 @@ html, body {
 
         img {
           height: 385px;
+          min-width: 100%;
         }
       }
 
@@ -481,6 +483,8 @@ html, body {
 
         img {
           max-height: 385px;
+          min-height: 385px;
+          max-width: initial;
         }
       }
 
@@ -492,7 +496,8 @@ html, body {
         right: 0;
 
         img {
-          max-height: 385px;
+          min-height: 385px;
+          max-width: initial;
         }
       }
 
@@ -601,8 +606,11 @@ html, body {
     }
   }
 
-  .white .main-body {
-    bottom: 132px;
+  .white.table .main-body {
+    display: table-cell;
+    position: initial;
+    vertical-align: middle;
+    z-index: 1;
     .body {
       width: 50%;
       float: right;

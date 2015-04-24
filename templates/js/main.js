@@ -15,6 +15,8 @@ $(document).ready(function () {
         }
     });
 
+    smooth(500, 10000);
+
     $('.second .navigation a').click(function (e) {
         $('.second .navigation').find('.active').removeClass('active');
         e.currentTarget.className = 'active';
@@ -55,4 +57,14 @@ $(document).ready(function () {
             $('.second .navigation').find('.active').removeClass('active');
         });
     });
+
+    function smooth(orientation, time) {
+        var start = $('#slider img').css('right');
+        $('#slider img').animate({right: orientation}, time, function() {
+            $('#slider img').animate({right: start}, time, function() {
+                smooth(orientation, time);
+            });
+        });
+
+    }
 });
