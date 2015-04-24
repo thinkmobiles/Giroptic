@@ -3,12 +3,15 @@
   src: url('../fonts/ZonaPro.otf'); /* Путь к файлу со шрифтом */
 }
 @font-face {
-  font-family: Zona-Light; /* Имя шрифта */
+  font-family: "Zona-Light"; /* Имя шрифта */
   src: url('../fonts/ZonaPro-Light.otf'); /* Путь к файлу со шрифтом */
 }
-
+@font-face {
+  font-family: "Zona Pro SemiBold"; /* Имя шрифта */
+  src: url('../fonts/ZonaPro-SemiBold.otf'); /* Путь к файлу со шрифтом */
+}
 html, body {
-  font-family: "Zona-Light", Arial;
+  font-family: "Zona-Light", serif;
 }
 
 #header {
@@ -51,9 +54,7 @@ html, body {
 }
 
 .logo {
-  background-image: url('../image/LOGO.png');
-  background-repeat: no-repeat;
-  background-position: 0 50%;
+  background: url('../image/LOGO.png') no-repeat 0 50%;
   height: 40px;
   float: left;
   width: 107px;
@@ -65,6 +66,7 @@ html, body {
   color: #fff;
   line-height: 40px;
   float: right;
+  font-size: 14px;
 
   ul {
     list-style: none;
@@ -83,7 +85,7 @@ html, body {
         color: #ffffff;
         cursor: pointer;
         display: inline-block;
-        padding: 0 30px;
+        padding: 0 60px 0 0;
         text-decoration: none;
         text-transform: uppercase;
       }
@@ -105,9 +107,7 @@ html, body {
   }
 
   .search {
-    background-image: url('../image/search.png');
-    background-repeat: no-repeat;
-    background-position: 50%;
+    background: url('../image/search.png') no-repeat 50%;
     border: none;
   }
 
@@ -119,16 +119,12 @@ html, body {
       float: right;
       height: 40px;
       width: 12px;
-      background-image: url('../image/arrow-down.png');
-      background-repeat: no-repeat;
-      background-position: 50%;
+      background: url('../image/arrow-down.png') no-repeat 50%;
     }
   }
 
   .social {
-    background-image: url('../image/share.png');
-    background-repeat: no-repeat;
-    background-position: 50%;
+    background: url('../image/share.png') no-repeat 50%;
   }
 }
 
@@ -158,10 +154,13 @@ html, body {
     z-index: 5;
     color: #ffffff;
     font-size: 14px;
-    padding: 20px 20px 0 0;
+    padding: 20px 0 0 0;
 
+    ul {
+      padding: 0;
+    }
     li {
-      padding: 0 40px;
+      padding: 0 30px;
       a {
         padding: 0;
 
@@ -206,7 +205,7 @@ html, body {
   position: absolute;
   top: 40px;
   left: 0;
-  height: 0px;
+  height: 0;
   width: 100%;
   background-color: #ffffff;
   overflow: hidden;
@@ -234,10 +233,8 @@ html, body {
       .item-img {
         vertical-align: middle;
         height: 65px;
-        //display: table-cell;
       }
       img {
-        //width: 80px;
         margin: 0 auto;
         display: block;
       }
@@ -261,8 +258,6 @@ html, body {
 
 #slider {
   background-color: #a7a7a7;
-  height: 876px;
-  margin: 0 -32px;
   position: relative;
 
   h2 {
@@ -276,18 +271,18 @@ html, body {
 
   img {
     position: absolute;
-    right: 0;
+    right: 200px;
     top: 200px;
   }
 }
 
 #main {
   background: linear-gradient(to top, #ffffff, #f0f0f0);
-  padding: 12px 32px;
+  padding: 12px 0;
 
   .content {
     margin: 0 auto;
-    width: 1680px;
+    width: 1616px;
 
     &:after {
       content: '';
@@ -296,25 +291,25 @@ html, body {
     }
   }
 
-  .slaid-menu {
+  .slider-menu {
     position: relative;
     height: 115px;
+    margin-bottom: 15px;
 
     & > a {
       position: absolute;
       cursor: pointer;
       height: 190px;
       width: 520px;
-      margin: 15px;
+      margin: 0 15px;
       float: left;
       bottom: 0;
       text-transform: uppercase;
       text-decoration: none;
       color: #acacac;
-      font-size: 32px;
       font-family: "Zona Pro", serif;
       font-weight: 100;
-      padding: 26px 48px;
+      padding: 22px;
       -moz-transition: height 700ms ease;
       -o-transition: height 700ms ease;
       -webkit-transition: height 700ms ease;
@@ -326,25 +321,19 @@ html, body {
     }
 
     .spec {
-      background-image: url('../image/spec.png');
-      background-position: 0;
-      background-repeat: no-repeat;
+      background: url('../image/spec.jpg') no-repeat 0;
       background-size: auto 225px;
       left: 0;
     }
 
     .las_vegas {
-      background-image: url('../image/las_vegas.png');
-      background-position: 0;
-      background-repeat: no-repeat;
+      background: url('../image/las_vegas.jpg') no-repeat 0;
       background-size: auto 225px;
       left: 550px;
     }
 
     .expertise {
-      background-image: url('../image/expertise.png');
-      background-position: 0;
-      background-repeat: no-repeat;
+      background: url('../image/expertise.jpg') no-repeat 0;
       background-size: auto 225px;
       right: 30px;
     }
@@ -368,86 +357,60 @@ html, body {
       overflow: hidden;
       height: 100%;
       width: 100%;
-      //-webkit-transition: background-size 800ms ease;
-      //-o-transition: background-size 800ms ease;
-      //-moz-transition: background-size 800ms ease;
-      //transition: background-size 800ms ease;
 
       &.cams360 {
-        background-image: url('../image/360cams.png');
-        background-position: 10% 50%;
-        background-repeat: no-repeat;
+        background: url('../image/360cams.png') 10% 50% no-repeat;
         background-size: auto 158%;
       }
       &.virtual {
-        background-image: url('../image/virtual.png');
-        background-position: 95% 0;
-        background-repeat: no-repeat;
+        background: url('../image/virtual.png') 95% 0 no-repeat;
         background-size: 35%;
       }
       &.audio {
-        background-image: url('../image/audio.png');
-        background-position: 0 -50px;
-        background-repeat: no-repeat;
+        background: url('../image/audio.jpg') 0 -50px no-repeat;
         background-size: 100%;
       }
       &.stabil {
-        background-image: url('../image/stabil.png');
-        background-position: 50%;
-        background-repeat: no-repeat;
+        background: url('../image/stabil.png') 50% no-repeat;
         background-size: 275px;
       }
       &.licensing {
-        background-image: url('../image/licensing.png');
-        background-position: 50%;
-        background-repeat: no-repeat;
+        background: url('../image/licensing.jpg') 50% no-repeat;
         background-size: auto 100%;
         opacity: 0.39;
       }
       &.randd {
-        background-image: url('../image/RandD.png');
-        background-position: 50%;
-        background-repeat: no-repeat;
+        background: url('../image/RandD.png') no-repeat 50%;
         background-size: auto;
       }
       &.app {
-        background-image: url('../image/app.png');
-        background-position: 50% 20px;
-        background-repeat: no-repeat;
+        background: url('../image/app.png') no-repeat 50% 20px;
         background-size: auto;
         opacity: 0.39;
       }
       &.develop {
-        background-image: url('../image/develop.png');
-        background-position: 50%;
-        background-repeat: no-repeat;
+        background: url('../image/develop.jpg') 50% no-repeat;
         background-size: auto;
       }
       &.accessoires {
-        background-image: url('../image/accessoires.png');
-        background-position: 50%;
-        background-repeat: no-repeat;
+        background: url('../image/accessoires.png') no-repeat 50%;
         background-size: auto;
       }
       &.camera {
-        background-image: url('../image/camera.png');
-        background-position: 50%;
-        background-repeat: no-repeat;
+        background: url('../image/camera.png') no-repeat 50%;
         background-size: auto;
       }
       &.gEYE {
-        background-image: url('../image/g-eye.png');
-        background-position: calc(50% + 50px) 100%;
-        background-repeat: no-repeat;
+        background: url('../image/g-eye.png') no-repeat calc(50% + 50px) 100%;
         background-size: auto;
       }
     }
   }
 
   .main-title {
-    font-family: "Zona Pro";
+    font-family: "Zona Pro", serif;
     font-weight: 100;
-    font-size: 30px;
+    font-size: 22.5px;
     color: #ffffff;
     text-transform: uppercase;
     margin: 0;
@@ -466,8 +429,8 @@ html, body {
     transition: bottom 800ms ease;
 
     .title {
-      font-size: 23.629px;
-      font-family: "Zona Pro";
+      font-size: 24px;
+      font-family: "Zona Pro SemiBold", serif;
       color: rgb(255, 255, 255);
       font-weight: bold;
       text-transform: uppercase;
@@ -476,8 +439,8 @@ html, body {
       text-align: left;
     }
     .body {
-      font-size: 16px;
-      font-family: "Zona Pro";
+      font-size: 15.75px;
+      font-family: "Zona-Light", serif;
       font-weight: 300;
       color: #ffffff;
       line-height: 1.5;
@@ -508,11 +471,8 @@ html, body {
 }
 
 .full-block {
-  height: 385px;
-  width: 1615px;
 
   .main-body {
-    //width: 735px;
 
     .body {
       width: calc(50%);
@@ -521,8 +481,6 @@ html, body {
 }
 
 .half-block {
-  height: 385px;
-  width: 795px;
 
   .main-body {
     width: 735px;
@@ -534,8 +492,6 @@ html, body {
 }
 
 .third-block {
-  height: 385px;
-  width: 520px;
 
   .main-body {
     width: 460px;
@@ -547,8 +503,6 @@ html, body {
 }
 
 .two-thirds {
-  height: 385px;
-  width: 1070px;
 
   .main-body {
     width: 1010px;
@@ -560,7 +514,6 @@ html, body {
 }
 
 .two-row {
-  height: 800px;
 
   .main-body {
     width: 460px;
@@ -603,15 +556,13 @@ html, body {
   cursor: pointer;
   height: 38px;
   width: 155px;
-  background-image: url('../image/discover.png');
-  background-repeat: no-repeat;
+  background: url('../image/discover.png') no-repeat;
   text-decoration: none;
   outline: none;
 }
 
 #footer {
   background-color: #cbcbcb;
-  padding-top: 34px;
 
   .footer-row {
     height: 300px;
@@ -620,12 +571,6 @@ html, body {
   .footer-container {
     height: 100%;
     margin: 0 auto;
-    padding: 0 80px;
-    width: 1216px;
-
-    &:first-child {
-      padding-bottom: 34px;
-    }
 
     &:after {
       content: '';
@@ -635,14 +580,8 @@ html, body {
 
     .column {
       float: left;
-      margin-right: 70px;
 
       &.logo-content {
-        width: 310px;
-
-        p {
-          font-size: 12px;
-        }
 
         a {
           display: block;
@@ -673,7 +612,6 @@ html, body {
       h3 {
         color: #44bbff;
         font-weight: 100;
-        font-size: 18px;
         margin-bottom: 15px;
       }
 
@@ -689,9 +627,7 @@ html, body {
       }
 
       .logo {
-        background-image: url('../image/LOGO_white.png');
-        background-repeat: no-repeat;
-        background-position: 0 50%;
+        background: url('../image/LOGO_white.png') no-repeat 0 50%;
         height: 48px;
         width: 100%;
         margin-bottom: 10px;
@@ -709,7 +645,7 @@ html, body {
     ul {
       list-style: none;
       padding: 0;
-      margin: 0px auto;
+      margin: 0 auto;
       width: 250px;
 
       li {
@@ -725,9 +661,7 @@ html, body {
           width: 38px;
 
           &.facebook-icon {
-            background-image: url('../image/FACEBOOK_icon.png');
-            background-repeat: no-repeat;
-            background-position: 50%;
+            background: url('../image/FACEBOOK_icon.png') no-repeat 50% 50%;
             background-size: 100%;
 
             &:hover {
@@ -735,9 +669,7 @@ html, body {
             }
           }
           &.twitter-icon {
-            background-image: url('../image/TWITTER_icon.png');
-            background-repeat: no-repeat;
-            background-position: 50%;
+            background: url('../image/TWITTER_icon.png') no-repeat 50%;
             background-size: 100%;
 
             &:hover {
@@ -745,9 +677,7 @@ html, body {
             }
           }
           &.googleplus-icon {
-            background-image: url('../image/GOOGLE-PLUS_icon.png');
-            background-repeat: no-repeat;
-            background-position: 50%;
+            background: url('../image/GOOGLE-PLUS_icon.png') no-repeat 50%;
             background-size: 100%;
 
             &:hover {
@@ -755,9 +685,7 @@ html, body {
             }
           }
           &.youtube-icon {
-            background-image: url('../image/YOUTUBE_icon.png');
-            background-repeat: no-repeat;
-            background-position: 50%;
+            background: url('../image/YOUTUBE_icon.png') no-repeat 50%;
             background-size: 100%;
 
             &:hover {
@@ -789,10 +717,7 @@ html, body {
       position: relative;
 
       .mail_icon {
-        background-image: url('../image/email_icon.png');
-        background-repeat: no-repeat;
-        background-position: 50%;
-        background-color: #ffffff;
+        background: #ffffff url('../image/email_icon.png') no-repeat 50%;
         position: absolute;
         display: block;
         margin: 0 auto;
@@ -818,6 +743,8 @@ html, body {
   .follow-us h3, .newsletter h3 {
     color: #ffffff;
     text-align: center;
+    font-size: 18px;
+    //margin-top: 30px;
   }
 
   .follow-us, .newsletter {
