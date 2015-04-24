@@ -2,18 +2,59 @@
   font-family: "Zona Pro"; /* Имя шрифта */
   src: url('../fonts/ZonaPro.otf'); /* Путь к файлу со шрифтом */
 }
+
 @font-face {
   font-family: "Zona-Light"; /* Имя шрифта */
   src: url('../fonts/ZonaPro-Light.otf'); /* Путь к файлу со шрифтом */
 }
+
 @font-face {
   font-family: "Zona Pro SemiBold"; /* Имя шрифта */
   src: url('../fonts/ZonaPro-SemiBold.otf'); /* Путь к файлу со шрифтом */
 }
+
+//* {
+//  margin: 0;
+//  padding: 0;
+//  -webkit-box-sizing: border-box;
+//  -moz-box-sizing: border-box;
+//  box-sizing: border-box;
+//}
 html, body {
   font-family: "Zona-Light", serif;
 }
 
+//html {
+//  font-size: 10px;
+//  -webkit-tap-highlight-color: rgba(0,0,0,0);
+//}
+//body {
+//  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+//  font-size: 14px;
+//  line-height: 1.42857143;
+//  color: #333;
+//  background-color: #fff;
+//}
+//:after, :before {
+//  -webkit-box-sizing: border-box;
+//  -moz-box-sizing: border-box;
+//  box-sizing: border-box;
+//}
+//a {
+//  background-color: transparent;
+//  text-decoration: none;
+//}
+//h1, h2, h3, h4, h5, h6 {
+//  font-family: inherit;
+//  font-weight: 500;
+//  line-height: 1.1;
+//  color: inherit;
+//  margin-top: 20px;
+//  margin-bottom: 10px;
+//}
+//p {
+//  margin: 0 0 10px;
+//}
 #header {
   position: absolute;
   width: 100%;
@@ -40,16 +81,16 @@ html, body {
   width: 100%;
   z-index: 999;
   top: -40px;
-  -moz-transition: top 500ms ;
-  -o-transition: top 500ms ;
-  -webkit-transition: top 500ms ;
-  transition: top 500ms ;
+  -moz-transition: top 500ms;
+  -o-transition: top 500ms;
+  -webkit-transition: top 500ms;
+  transition: top 500ms;
 
   &.fast {
-    -moz-transition: top 100ms ;
-    -o-transition: top 100ms ;
-    -webkit-transition: top 100ms ;
-    transition: top 100ms ;
+    -moz-transition: top 100ms;
+    -o-transition: top 100ms;
+    -webkit-transition: top 100ms;
+    transition: top 100ms;
   }
 }
 
@@ -281,6 +322,7 @@ html, body {
   padding: 12px 0;
 
   .content {
+    display: table;
     margin: 0 auto;
     width: 1616px;
 
@@ -346,64 +388,169 @@ html, body {
     position: relative;
     overflow: hidden;
 
+    &.table {
+      display: table;
+      border-collapse: collapse;
+
+      .main-title {
+        top: 30px;
+        left: 30px;
+      }
+    }
+
     &:hover .withDisc {
       bottom: 30px;
     }
 
     .img {
-      position: absolute;
-      top: 0;
-      right: 0;
-      overflow: hidden;
-      height: 100%;
-      width: 100%;
 
-      &.cams360 {
-        background: url('../image/360cams.png') 10% 50% no-repeat;
-        background-size: auto 158%;
+      img {
+        display: block;
+        margin: 0 auto;
       }
-      &.virtual {
-        background: url('../image/virtual.png') 95% 0 no-repeat;
-        background-size: 35%;
+
+      &.img-left {
+        position: absolute;
+        top: 0;
+        left: 30px;
+        height: 385px;
+
+        img {
+          height: 385px;
+        }
       }
-      &.audio {
-        background: url('../image/audio.jpg') 0 -50px no-repeat;
-        background-size: 100%;
+
+      &.img-right {
+        position: absolute;
+        top: 0;
+        right: 30px;
+        height: 385px;
+
+        img {
+          height: 385px;
+        }
       }
-      &.stabil {
-        background: url('../image/stabil.png') 50% no-repeat;
-        background-size: 275px;
+
+      &.img-center-middle {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        margin: -30px 0 0 -30px;
+
+        img {
+          max-width: 100%;
+          max-height: 100%;
+        }
       }
-      &.licensing {
-        background: url('../image/licensing.jpg') 50% no-repeat;
-        background-size: auto 100%;
-        opacity: 0.39;
+
+      &.img-center-full {
+        top: 0;
+        left: 0;
       }
-      &.randd {
-        background: url('../image/RandD.png') no-repeat 50%;
-        background-size: auto;
+
+      &.img-full-top {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+
+        img {
+          width: 100%;
+        }
       }
-      &.app {
-        background: url('../image/app.png') no-repeat 50% 20px;
-        background-size: auto;
-        opacity: 0.39;
+
+      &.img-full-left {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+
+        img {
+          height: 385px;
+        }
       }
-      &.develop {
-        background: url('../image/develop.jpg') 50% no-repeat;
-        background-size: auto;
+
+      &.img-full-right {
+        position: absolute;
+        max-width: 100%;
+        max-height: 100%;
+        top: 0;
+        right: 0;
+
+        img {
+          max-height: 385px;
+        }
       }
-      &.accessoires {
-        background: url('../image/accessoires.png') no-repeat 50%;
-        background-size: auto;
+
+      &.img-full-center {
+        position: absolute;
+        max-width: 100%;
+        max-height: 100%;
+        top: 0;
+        right: 0;
+
+        img {
+          max-height: 385px;
+        }
       }
-      &.camera {
-        background: url('../image/camera.png') no-repeat 50%;
-        background-size: auto;
+
+      &.opacity50 {
+        opacity: 0.5;
       }
-      &.gEYE {
-        background: url('../image/g-eye.png') no-repeat calc(50% + 50px) 100%;
-        background-size: auto;
-      }
+      //top: 0;
+      //right: 0;
+      //overflow: hidden;
+      //height: 100%;
+      //width: 100%;
+
+      //&.cams360 {
+      //  background: url('../image/360cams.png') 10% 50% no-repeat;
+      //  background-size: auto 158%;
+      //}
+      //&.virtual {
+      //  background: url('../image/virtual.png') 95% 0 no-repeat;
+      //  background-size: 35%;
+      //}
+      //&.audio {
+      //  background: url('../image/audio.jpg') 0 -50px no-repeat;
+      //  background-size: 100%;
+      //}
+      //&.stabil {
+      //  background: url('../image/stabil.png') 50% no-repeat;
+      //  background-size: 275px;
+      //}
+      //&.licensing {
+      //  background: url('../image/licensing.jpg') 50% no-repeat;
+      //  background-size: auto 100%;
+      //  opacity: 0.39;
+      //}
+      //&.randd {
+      //  background: url('../image/RandD.png') no-repeat 50%;
+      //  background-size: auto;
+      //}
+      //&.app {
+      //  background: url('../image/app.png') no-repeat 50% 20px;
+      //  background-size: auto;
+      //  opacity: 0.39;
+      //}
+      //&.develop {
+      //  background: url('../image/develop.jpg') 50% no-repeat;
+      //  background-size: auto;
+      //}
+      //&.accessoires {
+      //  background: url('../image/accessoires.png') no-repeat 50%;
+      //  background-size: auto;
+      //}
+      //&.camera {
+      //  background: url('../image/camera.png') no-repeat 50%;
+      //  background-size: auto;
+      //}
+      //&.gEYE {
+      //  background: url('../image/g-eye.png') no-repeat calc(50% + 50px) 100%;
+      //  background-size: auto;
+      //}
     }
   }
 
@@ -416,7 +563,8 @@ html, body {
     margin: 0;
     line-height: 1.2;
     text-align: left;
-    position: relative;
+    position: absolute;
+    z-index: 1;
   }
 
   .main-body {
@@ -447,7 +595,7 @@ html, body {
       text-align: left;
       margin-bottom: 30px;
     }
-    
+
     &.withDisc {
       bottom: -43px;
     }
@@ -471,6 +619,10 @@ html, body {
 }
 
 .full-block {
+
+  .img {
+    width: 50%;
+  }
 
   .main-body {
 
@@ -551,6 +703,7 @@ html, body {
 .dark-grey {
   background-color: #777777;
 }
+
 .discover {
   display: inline-block;
   cursor: pointer;
