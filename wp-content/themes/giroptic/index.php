@@ -6,52 +6,212 @@
  */
 
 get_header(); ?>
-
-<div id="content">
-
-		<section class="intro">
-			<h1>Hello, <span class="nl"></span>we are here to help you.</h1>
-			<p>
-				Gumba is a simple single-page website template. This is the place where you would normally introduce yourself. You can easily change the template to fit your needs by changing the text, photos and styles.
-			</p>
-		</section>
-
-		<section class="row">
-			<div class="col-full">
-				<h2>Example title</h2>
-				<p>
-					Gumba is a fictional agency from Amsterdam, The Netherlands. This is the place where you would normally introduce yourself. You can easily change the template to fit your needs by adding text or changing the colors and styles.
-				</p>
-			</div>
-		</section>
-
-		<section class="row">
-			<div class="photo-grid">
-                <a href="<?php bloginfo('stylesheet_directory'); ?>/img/example-photo-b.jpg" rel="lightbox" class="col-2"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/example-photo-b.jpg" alt="Example photo"></a>
-				<a href="<?php bloginfo('stylesheet_directory'); ?>/img/example-photo-c.jpg" rel="lightbox" class="col-2"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/example-photo-c.jpg" alt="Example photo"></a>
-				<a href="<?php bloginfo('stylesheet_directory'); ?>/img/example-photo-a.jpg" rel="lightbox" class="col-1"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/example-photo-a.jpg" alt="Example photo"></a>
-			</div>
-		</section>
-
-
-		<section class="row">
-			<div class="col">
-				<h2>Contact</h2>
-				<p>
-					Want to work with us? Just send us an <a href="mailto:#">email</a>.
-				</p>
-			</div>
-			<div class="col">
-				<h2>Follow us</h2>
-				<p>
-					We are on <a href="http://twitter.com/rickwaalders">Twitter</a>, <a href="http://dribbble.com/rickwaalders">Dribbble</a> and <a href="http://instagram.com/rickwaalders">Instagram</a>.
-				</p>
-			</div>
-		</section>
-
-    <?php get_sidebar(); ?>
-
-    <?php get_footer(); ?>
- 
+<div id="slider">
+<img src="<?php bloginfo('stylesheet_directory'); ?>/image/first-row.png" alt=""/>
 </div>
+
+<main id="main" role="main">
+    
+      
+    <div class="content">
+        <div class="slaid-menu">
+            <a class="spec">
+                specializing in 360° <br/>
+                IMMERSIVE SOLUTIONS
+            </a>
+            <a class="las_vegas">
+                CES LAS Vegas<br/>
+                2015
+            </a>
+            <a class="expertise">
+                OUR EXPERTISe
+            </a>
+        </div>
+        <div class="block full-block white">
+            <div class="img cams360">
+            </div>
+            <h1 class="main-title"></h1>
+
+            <div class="main-body">
+                <h2 class="title"></h2>
+
+                <p class="body">
+                    GIROPTIC build native immersive solutions to capture at once our environment. From omniscient vision
+                    to virtual reality, GIROPTIC leads the way to a new era where images won’t ever be limited by a
+                    frame.
+                </p>
+            </div>
+        </div>
+        
+        
+        
+        <div class="block full-block blue">
+            <?php
+                if ( is_active_sidebar( 'home_sidebar' ) ) :
+
+                    dynamic_sidebar( 'home_sidebar' );
+
+                endif;
+			?>
+        </div>
+        <div class="block full-block blue">
+            <div class="img virtual">
+            </div>
+            <h1 class="main-title">Technologie</h1>
+
+            <div class="main-body withDisc">
+                <h2 class="title">GIROPTIC 360 Virtual Sensor Technology</h2>
+
+                <p class="body">
+                    GIROPTIC build native immersive solutions to capture at once our environment. From omniscient vision
+                    to virtual reality, GIROPTIC leads the way to a new era where images won’t ever be limited by a
+                    frame.
+                </p>
+
+                <a class="discover"></a>
+            </div>
+        </div>
+        
+        
+        
+        <div class="block half-block orange">
+            <div class="img stabil">
+            </div>
+            <h1 class="main-title">Technologie</h1>
+
+            <div class="main-body withDisc">
+                <h2 class="title">360° video stabilization</h2>
+
+                <p class="body">
+                    Because if you don’t, it moves
+                </p>
+
+                <a class="discover"></a>
+            </div>
+        </div>
+        <div class="block half-block black">
+            <div class="img audio">
+            </div>
+            <h1 class="main-title">Technologie</h1>
+
+            <div class="main-body withDisc">
+                <h2 class="title">Immersive sound experience</h2>
+
+                <p class="body">
+                    Because if you don’t, it moves
+                </p>
+
+                <a class="discover"></a>
+            </div>
+        </div>
+        <div class="block third-block black">
+            <div class="img develop">
+            </div>
+            <h1 class="main-title">OUR EXPERTISe</h1>
+
+            <div class="main-body withDisc">
+                <h2 class="title">Product development</h2>
+
+                <p class="body">
+                    In house development of GIROPTIC branded products and collaboration
+                </p>
+
+                <a class="discover"></a>
+            </div>
+        </div>
+        <div class="block third-block grey">
+            <div class="img randd">
+            </div>
+            <h1 class="main-title"></h1>
+
+            <div class="main-body withDisc">
+                <h2 class="title">R&D</h2>
+
+                <p class="body">
+                    An engineering department providing custom solutions to high profile projects
+                </p>
+
+                <a class="discover"></a>
+            </div>
+        </div>
+        <div class="block third-block light-blue">
+            <div class="img licensing">
+            </div>
+            <h1 class="main-title"></h1>
+
+            <div class="main-body withDisc">
+                <h2 class="title">Licensing</h2>
+
+                <p class="body">
+                    Upgrading your video capabilities with GIROPTIC Technology
+                </p>
+
+                <a class="discover"></a>
+            </div>
+        </div>
+        <div class="block two-row third-block light-blue">
+            <div class="img camera">
+            </div>
+            <h1 class="main-title">CAMERA</h1>
+
+            <div class="main-body withDisc">
+                <h2 class="title">GIROPTIC 360cam</h2>
+
+                <p class="body">
+                    The World’s First True 360HD Camera
+                </p>
+
+                <a class="discover"></a>
+            </div>
+        </div>
+        <div class="block two-thirds orange">
+            <div class="img gEYE">
+            </div>
+            <h1 class="main-title">FEATURED PROJECTS</h1>
+
+            <div class="main-body withDisc">
+                <h2 class="title">G-Eye 360 by GIROPTIC</h2>
+
+                <p class="body">
+                    The Sport Edition
+                </p>
+
+                <a class="discover"></a>
+            </div>
+        </div>
+        <div class="block third-block grey">
+            <div class="img accessoires">
+            </div>
+            <h1 class="main-title">ACCESSOIRES</h1>
+
+            <div class="main-body withDisc">
+                <h2 class="title">G-Eye 360 by GIROPTIC</h2>
+
+                <p class="body">
+                    The Sport Edition
+                </p>
+
+                <a class="discover"></a>
+            </div>
+        </div>
+        <div class="block third-block dark-grey">
+            <div class="img app">
+            </div>
+            <h1 class="main-title">APP</h1>
+
+            <div class="main-body withDisc">
+                <h2 class="title">360CAM APP</h2>
+
+                <p class="body">
+                    The Sport Edition
+                </p>
+
+                <a class="discover"></a>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<?php get_footer(); ?>
 

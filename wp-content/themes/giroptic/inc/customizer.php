@@ -1,5 +1,4 @@
 <?php
-
 /**
  * giroptic Theme Customizer
  *
@@ -17,21 +16,6 @@ function giroptic_social_customizer($wp_customize) {
         )
     );
 
-    // disabling
-    $wp_customize->add_setting(
-        'giroptic_social_disabled', array(
-        'default' => 'false',
-        'sanitize_callback' => 'esc_url_raw',
-        'transport' => 'postMessage'
-        )
-    );
-    $wp_customize->add_control(
-        'giroptic_social_disabled', array(
-        'label' => 'Disable TF social-icons',
-        'section' => 'giroptic_social',
-        'type' => 'checkbox',
-        )
-    );
 
     // facebook
     $wp_customize->add_setting(
@@ -65,17 +49,17 @@ function giroptic_social_customizer($wp_customize) {
         )
     );
 
-    //linkedin
+    //Youtube
     $wp_customize->add_setting(
-        'giroptic_social[tf_linkedin]', array(
-        'default' => 'http://www.linkedin.com',
+        'giroptic_social[tf_youtube]', array(
+        'default' => 'http://www.youtube.com',
         'sanitize_callback' => 'esc_url_raw',
         'transport' => 'postMessage'
         )
     );
     $wp_customize->add_control(
-        'giroptic_social[tf_linkedin]', array(
-        'label' => 'linkedin URL',
+        'giroptic_social[tf_youtube]', array(
+        'label' => 'Youtube URL',
         'section' => 'giroptic_social',
         'type' => 'text',
         )
@@ -83,15 +67,15 @@ function giroptic_social_customizer($wp_customize) {
 
     //google-plus
     $wp_customize->add_setting(
-        'giroptic_social[tf_google-plus]', array(
+        'giroptic_social[tf_googleplus]', array(
         'default' => 'http://www.google.com',
         'sanitize_callback' => 'esc_url_raw',
         'transport' => 'postMessage'
         )
     );
     $wp_customize->add_control(
-        'giroptic_social[tf_google-plus]', array(
-        'label' => 'google-plus URL',
+        'giroptic_social[tf_googleplus]', array(
+        'label' => 'Google-plus URL',
         'section' => 'giroptic_social',
         'type' => 'text',
         )
@@ -133,9 +117,11 @@ function geroptic_sanitize_text($input) {
     return wp_kses_post(force_balance_tags($input));
 }
 
-/* LOGO	 */
+
 
 function giroptic_theme_customizer($wp_customize) {
+    /* LOGO	 */
+    
     $wp_customize->add_section('giroptic_logo_section', array(
         'title' => __('Logo', 'giroptic'),
         'priority' => 30,
@@ -149,9 +135,42 @@ function giroptic_theme_customizer($wp_customize) {
         'section' => 'giroptic_logo_section',
         'settings' => 'giroptic_logo',
     )));
+
+
+
+
+    /* TEXTAREA */
+
+    class Giroptic_Customize_Textarea_Control extends WP_Customize_Control {
+
+        public $type = 'textarea';
+
+        public function render_content() {
+            ?>
+
+            <label>
+                <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
+                <textarea rows="5" style="width:100%;" <?php $this->link(); ?>><?php echo esc_textarea($this->value()); ?></textarea>
+            </label>
+
+            <?php
+        }
+
+    }
+
+    $wp_customize->add_section('footer_content_section', array(
+        'title' => __('Footer Content', 'Giroptic'),
+    ));
+
+    $wp_customize->add_setting('footer_content', array('default' => 'Please enter here footer content text'));
+
+    $wp_customize->add_control(new Giroptic_Customize_Textarea_Control($wp_customize, 'footer_content', array(
+        'label' => 'Footer content',
+        'section' => 'footer_content_section',
+        'settings' => 'footer_content',
+    )));
 }
 
 add_action('customize_register', 'giroptic_theme_customizer');
-
 
 
