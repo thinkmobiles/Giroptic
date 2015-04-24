@@ -15,7 +15,7 @@ $(document).ready(function () {
         }
     });
 
-    smooth(500, 10000);
+    smooth(300, 15000);
 
     $('.second .navigation a').click(function (e) {
         $('.second .navigation').find('.active').removeClass('active');
@@ -60,8 +60,12 @@ $(document).ready(function () {
 
     function smooth(orientation, time) {
         var start = $('#slider img').css('right');
-        $('#slider img').animate({right: orientation}, time, function() {
-            $('#slider img').animate({right: start}, time, function() {
+        $('#slider img').stop().animate({
+            right: '+=' + orientation
+        }, time, "linear", function() {
+            $('#slider img').stop().animate({
+                right: '-=' + orientation
+            }, time, "linear", function() {
                 smooth(orientation, time);
             });
         });
