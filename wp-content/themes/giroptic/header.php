@@ -13,10 +13,14 @@
         <title>360</title>
         <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style/bootstrap.min.css" type="text/css" />
         <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style/main.css" type="text/css" />
+        <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style/media.css" type="text/css" />
         <?php wp_head(); ?>
     </head>
     <body>
         <header id="header" role="header">
+          
+            
+            
             <div class="first">
                 <div class="navigation" role="navigation">
                     <ul>
@@ -29,6 +33,9 @@
             <div class="second">
                 <div class="logo" role="logo"></div>
                 <div class="navigation" role="navigation">
+                      <?php wp_nav_menu(array('theme_location' => 'header-menu')) ?>
+                    
+                    
                     <ul>
                         <li><a>technologie</a></li>
                         <li><a>our expertise</a></li>

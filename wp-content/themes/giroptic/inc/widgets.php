@@ -1,21 +1,14 @@
 <?php
-/* * ************************* */
-
-/* * **** clients widget * */
-
-/* * ************************ */
-
 add_action('widgets_init', 'giroptic_register_widgets');
-
-function giroptic_register_widgets() {
-    register_widget('homep_widget');
-}
 
 add_filter('widget_name', function( $title ) {
     return '<b>' . $title . '</b>';
 });
 
-// Creating the widget 
+function giroptic_register_widgets() {
+    register_widget('homep_widget');
+}
+
 class homep_widget extends WP_Widget {
 
     function __construct() {
@@ -36,17 +29,34 @@ class homep_widget extends WP_Widget {
         $link = apply_filters('widget_link', $instance['link']);
         $description = apply_filters('widget_description', $instance['description']);
         $image_uri = esc_url($instance['image_uri']);
-        $type = apply_filters('widget_type',$instance['type']);;
+        $type = apply_filters('widget_type', $instance['type']);
+        $img_position = apply_filters('widget_img_position', $instance['img_position']);
+        $size = apply_filters('widget_size', $instance['size']);
+        
+        if(empty($size)){
+            $size = 'full-block';
+        }
         echo $args['before_widget'];
+        ?>
+        
+        <div class="block <?php echo $size?> <?php echo $type?> <?php if($img_position == 'img-center-middle' || $type == "white"): echo 'table'; endif?>">
+            <h2 class="main-title">
+                <?php echo $args['before_name'] . $name . $args['after_name'];?>
+            </h2>
 
-        if (!empty($name))
-            
-            ?>
-        <h2 class="main-title"><?php echo $args['before_name'] . $name . $args['after_name']; ?></h2>
+            <?php if (!empty($image_uri)): ?>
+                <div class="img <?php echo $img_position?>">
+                    <img
+                        src="<?php echo $image_uri;?>" 
+                        alt="img"
+                        >
+                </div>
+            <?php endif; ?>
 
-        <div class="main-body withDisc">
+            <?php if (!empty($name)): ?> <?php endif; ?>
 
-            <?php
+            <div class="main-body withDisc">
+                <?php
                 if (!empty($title))
                     echo "<h2 class='title' >" . $title . "</h2>";
 
@@ -55,29 +65,11 @@ class homep_widget extends WP_Widget {
 
                 if (!empty($link))
                     echo "<a class='discover' href=" . $link . "></a>";
-                
-                if (!empty($type))
-                    echo "<p>Type:".$type."</p>"
-            ?>
-
+                ?>
+            </div>
         </div>
+
         <?php
-        
-        if (!empty($image_uri)):
-            ?>
-            <img
-                src="<?php
-            if (!empty($image_uri)):
-                echo $image_uri;
-            endif;
-            ?>" 
-                alt="img"
-                ><br>
-            <?php
-        endif;
-
-
-
         echo $args['after_widget'];
     }
 
@@ -105,13 +97,24 @@ class homep_widget extends WP_Widget {
         } else {
             $description = __('Short description', 'homep_widget_domain');
         }
-        
+
         if (isset($instance['type'])) {
             $type = $instance['type'];
         } else {
             $type = __('Short type', 'homep_widget_domain');
         }
-
+        
+        if (isset($instance['img_position'])) {
+            $img_position = $instance['img_position'];
+        } else {
+            $img_position = __('Image position', 'homep_widget_domain');
+        }
+        
+         if (isset($instance['size'])) {
+            $size = $instance['size'];
+        } else {
+            $size = __('full-block', 'homep_widget_domain');
+        }
 
         wp_enqueue_script('widget-clients', get_template_directory_uri() . '/js/widget-clients.js', FALSE, FALSE, FALSE);
 // 
@@ -155,10 +158,10 @@ class homep_widget extends WP_Widget {
                    name="<?php echo $this->get_field_name('image_uri'); ?>"
                    id="<?php echo $this->get_field_id('image_uri'); ?>" 
                    value="<?php
-        if (!empty($instance['image_uri'])):
-            echo $instance['image_uri'];
-        endif;
-        ?>"
+                   if (!empty($instance['image_uri'])):
+                       echo $instance['image_uri'];
+                   endif;
+                   ?>"
                    style="margin-top:5px;">
 
             <input 
@@ -169,6 +172,32 @@ class homep_widget extends WP_Widget {
                 value="<?php _e('Upload Image', 'zerif-lite'); ?>" 
                 style="margin-top:5px;"/>
         </p>
+        <?php /* Image position */ ?>
+        <p>
+            <label for="<?php echo $this->get_field_id('img_position'); ?>"><?php _e('Image position:', 'giroptic'); ?></label> 
+            <select 
+                class='widefat' 
+                id="<?php echo $this->get_field_id('img_position'); ?>"    
+                name="<?php echo $this->get_field_name('img_position'); ?>" 
+                type="text"
+                >
+                <option value='img-right'<?php echo ($img_position == 'img-right') ? 'selected' : ''; ?>>
+                    Right
+                </option>
+                <option value='img-full-left'<?php echo ($img_position == 'img-full-left') ? 'selected' : ''; ?>>
+                    Left
+                </option> 
+                <option value='img-center-middle'<?php echo ($img_position == 'img-center-middle') ? 'selected' : ''; ?>>
+                    Center
+                </option> 
+                <option value='img-full-top'<?php echo ($img_position == 'img-full-top') ? 'selected' : ''; ?>>
+                    Full
+                </option> 
+            </select>
+        </p>
+        <p>
+        
+
         <p>
             <label for="<?php echo $this->get_field_id('description'); ?>"><?php _e('Short description:', 'giroptic'); ?></label><br/>
             <textarea
@@ -179,24 +208,51 @@ class homep_widget extends WP_Widget {
         </p>
         <?php /* Selectbox */ ?>
         <p>
-            <label for="<?php echo $this->get_field_id('type'); ?>"><?php _e('Type:', 'giroptic'); ?></label> 
+            <label for="<?php echo $this->get_field_id('type'); ?>"><?php _e('Block color:', 'giroptic'); ?></label> 
             <select 
                 class='widefat' 
                 id="<?php echo $this->get_field_id('type'); ?>"    
                 name="<?php echo $this->get_field_name('type'); ?>" 
                 type="text"
-            >
-                <option value='Full blue'<?php echo ($type == 'Full blue') ? 'selected' : ''; ?>>
-                    Full blue
+                >
+                <option value='blue'<?php echo ($type == 'blue') ? 'selected' : ''; ?>>
+                    Blue
                 </option>
-                <option value='Full yellow'<?php echo ($type == 'Full yellow') ? 'selected' : ''; ?>>
-                    Full yellow
+                <option value='orange'<?php echo ($type == 'orange') ? 'selected' : ''; ?>>
+                    Orange
                 </option> 
-                <option value='Boston'<?php echo ($type == 'Boston') ? 'selected' : ''; ?>>
-                    Boston
+                <option value='black'<?php echo ($type == 'black') ? 'selected' : ''; ?>>
+                    Black
                 </option> 
-            </select>                
-        </label>
+                <option value='white'<?php echo ($type == 'white') ? 'selected' : ''; ?>>
+                    White
+                </option>
+                <option value='grey'<?php echo ($type == 'grey') ? 'selected' : ''; ?>>
+                    Grey
+                </option> 
+            </select>
+        </p>
+        <p>
+            <label for="<?php echo $this->get_field_id('size'); ?>"><?php _e('Block size:', 'giroptic'); ?></label> 
+            <select 
+                class='widefat' 
+                id="<?php echo $this->get_field_id('size'); ?>"    
+                name="<?php echo $this->get_field_name('size'); ?>" 
+                type="text"
+                >
+                <option value='full-block'<?php echo ($size == 'full-block') ? 'selected' : ''; ?>>
+                    Full
+                </option>
+                <option value='half-block'<?php echo ($size == 'half-block') ? 'selected' : ''; ?>>
+                    1/2
+                </option> 
+                <option value='third-block'<?php echo ($size == 'third-block') ? 'selected' : ''; ?>>
+                    1/3
+                </option> 
+                <option value='two-row third-block'<?php echo ($size == 'two-row third-block') ? 'selected' : ''; ?>>
+                    2/3
+                </option> 
+            </select>
         </p>
 
         <?php
@@ -214,6 +270,8 @@ class homep_widget extends WP_Widget {
         $instance['image_uri'] = (!empty($new_instance['image_uri']) ) ? strip_tags($new_instance['image_uri']) : '';
         $instance['description'] = (!empty($new_instance['description']) ) ? strip_tags($new_instance['description']) : '';
         $instance['type'] = (!empty($new_instance['type']) ) ? strip_tags($new_instance['type']) : '';
+        $instance['img_position'] = (!empty($new_instance['img_position']) ) ? strip_tags($new_instance['img_position']) : 'img-right';
+        $instance['size'] = (!empty($new_instance['size']) ) ? strip_tags($new_instance['size']) : '';
         return $instance;
     }
 

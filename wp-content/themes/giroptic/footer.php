@@ -29,16 +29,17 @@
                     ?>
                 </ul>
             </div>
+            
+
+
             <div class="newsletter">
                 <h3>NEWSLETTER</h3>
                 <p>Register and get the latest news and promotions</p>
-                <div class="input-group">
-                    <div class="mail_icon"></div>
-                    <?php 
-                        $widgetNL = new WYSIJA_NL_Widget(true);
-                        echo $widgetNL->widget(array('form' => 1, 'form_type' => 'php'));
-                    ?>
-                </div>
+                <?php
+                    if( function_exists( 'mc4wp_form' ) ) {
+                        mc4wp_form();
+                    }
+                ?>
             </div>
             <hr/>
         </div>

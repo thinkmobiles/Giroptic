@@ -4,20 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/var/www/html/giroptic/wp-content/themes/giroptic/inc/widgets.php</file>
-            <file>file:/var/www/html/giroptic/wp-config_1.php</file>
-            <file>file:/var/www/html/giroptic/wp-content/themes/giroptic/index.php</file>
-            <file>file:/var/www/html/giroptic/templates/css/main.less</file>
-            <file>file:/var/www/html/giroptic/wp-config.php</file>
-            <file>file:/var/www/html/giroptic/wp-content/themes/giroptic/sidebar.php</file>
-            <file>file:/var/www/html/giroptic/wp-content/themes/giroptic/footer.php</file>
             <file>file:/var/www/html/giroptic/wp-content/themes/giroptic/header.php</file>
-            <file>file:/var/www/html/giroptic/wp-settings.php</file>
-            <file>file:/var/www/html/giroptic/wp-cron.php</file>
-            <file>file:/var/www/html/giroptic/wp-content/themes/giroptic/image/discover.png</file>
+            <file>file:/var/www/html/giroptic/wp-content/themes/giroptic/index.php</file>
             <file>file:/var/www/html/giroptic/wp-content/themes/giroptic/functions.php</file>
-            <file>file:/var/www/html/giroptic/.htaccess</file>
-            <file>file:/var/www/html/giroptic/wp-content/index.php</file>
-            <file>file:/var/www/html/giroptic/wp-content/themes/giroptic/inc/customizer.php</file>
             <file>file:/var/www/html/giroptic/templates/index.html</file>
         </group>
     </open-files>

@@ -15,7 +15,7 @@ $(document).ready(function () {
         }
     });
 
-    smooth(500, 10000);
+    smooth(500, 15000);
 
     $('.second .navigation a').click(function (e) {
         $('.second .navigation').find('.active').removeClass('active');

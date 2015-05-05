@@ -120,6 +120,28 @@ function geroptic_sanitize_text($input) {
 
 
 function giroptic_theme_customizer($wp_customize) {
+    
+    /* Backgrount Image	 */
+    
+    $wp_customize->add_section('giroptic_backgound_image', array(
+        'title' => __('Backgound image', 'giroptic'),
+        'priority' => 30,
+        'description' => 'Upload a image ',
+    ));
+
+    $wp_customize->add_setting('giroptic_backgound_image');
+
+    $wp_customize->add_control(
+        new WP_Customize_Image_Control(
+            $wp_customize, 'giroptic_backgound_image', 
+            array(
+                'label' => __('Background image', 'giroptic'),
+                'section' => 'giroptic_backgound_image',
+                'settings' => 'giroptic_backgound_image',
+            )
+        )
+    );
+    
     /* LOGO	 */
     
     $wp_customize->add_section('giroptic_logo_section', array(

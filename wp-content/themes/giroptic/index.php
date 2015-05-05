@@ -7,28 +7,26 @@
 
 get_header(); ?>
 <div id="slider">
-<img src="<?php bloginfo('stylesheet_directory'); ?>/image/first-row.png" alt=""/>
+    <?php 
+    $img_url = get_theme_mod(giroptic_backgound_image);
+    if(isset($img_url)):
+    ?>
+        <img src="<?php echo $img_url?>" />
+    <?php endif; ?>
 </div>
 
 <main id="main" role="main">
     
       
     <div class="content">
-        <div class="slaid-menu">
-            <a class="spec">
-                specializing in 360° <br/>
-                IMMERSIVE SOLUTIONS
-            </a>
-            <a class="las_vegas">
-                CES LAS Vegas<br/>
-                2015
-            </a>
-            <a class="expertise">
-                OUR EXPERTISe
-            </a>
+        <div class="slider-menu">
+          <?php wp_nav_menu(array('theme_location' => 'frontpage-menu','items_wrap' => '<div><a id="item-id">Menu: </a>%3$s</div>')); ?>
         </div>
-        <div class="block full-block white">
-            <div class="img cams360">
+        
+        
+        <div class="block full-block white table">
+            <div class="img img-left">
+                <img src="<?php bloginfo('stylesheet_directory'); ?>/image/360cams.png">
             </div>
             <h1 class="main-title"></h1>
 
@@ -45,15 +43,16 @@ get_header(); ?>
         
         
         
-        <div class="block full-block blue">
-            <?php
-                if ( is_active_sidebar( 'home_sidebar' ) ) :
+        
+        <?php
+            if ( is_active_sidebar( 'home_sidebar' ) ) :
+                dynamic_sidebar( 'home_sidebar' );
+            endif;            
+        ?>
 
-                    dynamic_sidebar( 'home_sidebar' );
-
-                endif;
-			?>
-        </div>
+        
+        
+        
         <div class="block full-block blue">
             <div class="img virtual">
             </div>

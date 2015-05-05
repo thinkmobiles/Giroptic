@@ -14,10 +14,19 @@ add_filter('menu_image_default_sizes', function($sizes) {
     return $sizes;
 });
 
+/**
+ * Load media files needed for Uploader
+ */
+function load_wp_media_files() {
+  wp_enqueue_media();
+}
+add_action( 'admin_enqueue_scripts', 'load_wp_media_files' );
+
 function register_my_menus() {
     register_nav_menus(
         array(
             'header-menu' => __('Header Menu'),
+            'frontpage-menu' => __('Frontpage menu with image'),
             'sitemap-menu' => __('Site Map Menu'),
             'default-footer-menu' => __('Default footer Menu'),
             'professionals-menu' => __('Professionals Menu'),
@@ -28,7 +37,7 @@ function register_my_menus() {
 
 add_action('init', 'register_my_menus');
 
-function arphabet_widgets_init() {
+function giroptic_widgets_init() {
 
     register_sidebar(array(
         'name' => 'Home sidebar',
@@ -38,10 +47,16 @@ function arphabet_widgets_init() {
         'before_title' => '<h2 class="rounded">',
         'after_title' => '</h2>',
     ));
+    
+     register_sidebar(array(
+        'name' => 'Footer sidebar',
+        'id' => 'footer_sidebar',
+        'before_widget' => '<div>',
+        'after_widget' => '</div>'
+    ));
 }
 
-add_action('widgets_init', 'arphabet_widgets_init');
-
+add_action('widgets_init', 'giroptic_widgets_init');
 
 
 /**
@@ -54,3 +69,4 @@ require get_template_directory() . '/inc/customizer.php';
  * Widgets additions.
  */
 require get_template_directory() . '/inc/widgets.php';
+
