@@ -20,7 +20,7 @@ get_header(); ?>
       
     <div class="content">
         <div class="slider-menu">
-          <?php wp_nav_menu(array('theme_location' => 'frontpage-menu','items_wrap' => '<div><a id="item-id">Menu: </a>%3$s</div>')); ?>
+          <?php wp_nav_menu(array('theme_location' => 'frontpage-menu')); ?>
         </div>
         
         
@@ -50,8 +50,6 @@ get_header(); ?>
             endif;            
         ?>
 
-        
-        
         
         <div class="block full-block blue">
             <div class="img virtual">
