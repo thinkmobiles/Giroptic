@@ -15,8 +15,7 @@ $(document).ready(function () {
         }
     });
 
-
-    smooth(500, 15000);
+    smooth(300, 12000);
 
     $('.second .navigation a').click(function (e) {
         $('.second .navigation').find('.active').removeClass('active');
@@ -64,6 +63,7 @@ $(document).ready(function () {
         $('#slider img').stop().animate({
             right: '+=' + orientation
         }, time, "linear", function() {
+
             $('#slider img').stop().animate({
                 right: '-=' + orientation
             }, time, "linear", function() {
