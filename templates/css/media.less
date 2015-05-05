@@ -4,6 +4,118 @@
   }
 
   #main .content {
+    width: 320px;
+  }
+
+  #main .slider-menu {
+    height: 68px;
+  }
+
+  #main .slider-menu li {
+    margin: 0 11.5px;
+    width: 225.3px;
+
+    & > a {
+      font-size: 18px;
+      padding: 15px 11px;
+      height: 115px;
+      width: 225.3px;
+
+      &.spec {
+        background-size: 100% 135px;
+        left: 0;
+      }
+      &.las_vegas {
+        background-size: 100% 135px;
+        left: 0;
+      }
+      &.expertise {
+        background-size: 100% 135px;
+        right: 0;
+      }
+
+      &:hover {
+        height: 135px;
+      }
+    }
+  }
+
+  .block {
+    float: none;
+    margin: 15px auto;
+    padding: 10px;
+  }
+
+  .full-block, .half-block, .third-block, .two-thirds, .two-row {
+    height: 147px;
+    width: 296px;
+  }
+
+  #footer .footer-container {
+    width: 296px;
+  }
+
+  #footer .follow-us, #footer .newsletter {
+    width: 100%;
+    padding-bottom: 36px;
+  }
+
+  #footer .footer-row {
+    height: inherit;
+  }
+
+  #footer .logo-content {
+    width: 250px;
+  }
+
+  .follow-us h3, .newsletter h3 {
+    margin-top: 30px;
+  }
+
+  #footer .column {
+    margin-right: 25px;
+  }
+
+  #footer .column {
+    margin-right: 25px;
+
+    h3 {
+      font-size: 16px;
+    }
+
+    ul {
+      font-size: 12px;
+    }
+
+    p {
+      font-size: 10px;
+      text-align: justify;
+    }
+  }
+
+  #footer .newsletter .input-group {
+    width: 296px;
+  }
+
+  #footer .footer-container .column .logo {
+    background-position: 50%;
+  }
+
+  #footer .footer-container .column.logo-content a {
+    text-align: center;
+  }
+
+  #footer .follow-us p{
+    min-height: 1px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #slider {
+    height: 980px;
+  }
+
+  #main .content {
     width: 750px;
   }
 
@@ -11,28 +123,39 @@
     height: 68px;
   }
 
-  #main .slider-menu > a {
-    font-size: 18px;
-    padding: 15px 11px;
-    height: 115px;
+  #main .slider-menu li {
+    margin: 0 11.5px;
     width: 225.3px;
 
-    &.spec {
-      background-size: 100% 135px;
-      left: 0;
-    }
-    &.las_vegas {
-      background-size: 100% 135px;
-      left: 255.3px;
-    }
-    &.expertise {
-      background-size: 100% 135px;
-      right: 0;
-    }
+    & > a {
+      font-size: 18px;
+      padding: 15px 11px;
+      height: 115px;
+      width: 225.3px;
 
-    &:hover {
-      height: 135px;
+      &.spec {
+        background-size: 100% 135px;
+        left: 0;
+      }
+      &.las_vegas {
+        background-size: 100% 135px;
+        left: 0;
+      }
+      &.expertise {
+        background-size: 100% 135px;
+        right: 0;
+      }
+
+      &:hover {
+        height: 135px;
+      }
     }
+  }
+
+  .block {
+    float: left;
+    margin: 15px;
+    padding: 30px;
   }
 
   .full-block, .half-block, .third-block, .two-thirds, .two-row {
@@ -78,7 +201,24 @@
 
     p {
       font-size: 10px;
+      text-align: left;
     }
+  }
+
+  #footer .newsletter .input-group {
+    width: 570px;
+  }
+
+  #footer .footer-container .column .logo {
+    background-position: 0 50%;
+  }
+
+  #footer .footer-container .column.logo-content a {
+    text-align: left;
+  }
+
+  #footer .follow-us p{
+    min-height: 24px;
   }
 }
 
@@ -91,26 +231,31 @@
     width: 1024px;
   }
 
-  #main .slider-menu > a {
-    font-size: 23px;
-    height: 115px;
+  #main .slider-menu li {
+    margin: 0 15px;
     width: 311.3px;
 
-    &.spec {
-      background-size: 100% 135px;
-      left: 0;
-    }
-    &.las_vegas {
-      background-size: 100% 135px;
-      left: 341.3px;
-    }
-    &.expertise {
-      background-size: 100% 135px;
-      right: 0;
-    }
+    & > a {
+      font-size: 23px;
+      height: 115px;
+      width: 311.3px;
 
-    &:hover {
-      height: 135px;
+      &.spec {
+        background-size: 100% 135px;
+        left: 0;
+      }
+      &.las_vegas {
+        background-size: 100% 135px;
+        left: 0;
+      }
+      &.expertise {
+        background-size: 100% 135px;
+        right: 0;
+      }
+
+      &:hover {
+        height: 135px;
+      }
     }
   }
 
@@ -191,27 +336,31 @@
     height: 86px;
   }
 
-  #main .slider-menu > a {
-    font-size: 24px;
-    padding: 20px 15px;
-    height: 140px;
+  #main .slider-menu li {
     width: 386px;
 
-    &.spec {
-      background-size: 100% 172px;
-      left: 0;
-    }
-    &.las_vegas {
-      background-size: 100% 172px;
-      left: 416px;
-    }
-    &.expertise {
-      background-size: 100% 172px;
-      right: 0;
-    }
+    & > a {
+      font-size: 24px;
+      padding: 20px 15px;
+      height: 140px;
+      width: 386px;
 
-    &:hover {
-      height: 172px;
+      &.spec {
+        background-size: 100% 172px;
+        left: 0;
+      }
+      &.las_vegas {
+        background-size: 100% 172px;
+        left: 0;
+      }
+      &.expertise {
+        background-size: 100% 172px;
+        right: 0;
+      }
+
+      &:hover {
+        height: 172px;
+      }
     }
   }
 
@@ -251,30 +400,35 @@
   }
 
   #main .slider-menu {
+    font-size: 32px;
     height: 115px;
   }
 
-  #main .slider-menu > a {
-    font-size: 31px;
-    padding: 26px 23px;
-    height: 190px;
+  #main .slider-menu li {
     width: 518.5px;
 
-    &.spec {
-      background-size: 100% 225px;
-      left: 0;
-    }
-    &.las_vegas {
-      background-size: 100% 225px;
-      left: 548.5px;
-    }
-    &.expertise {
-      background-size: 100% 225px;
-      right: 0;
-    }
+    & > a {
+      font-size: 31px;
+      padding: 26px 23px;
+      height: 190px;
+      width: 518.5px;
 
-    &:hover {
-      height: 225px;
+      &.spec {
+        background-size: 100% 225px;
+        left: 0;
+      }
+      &.las_vegas {
+        background-size: 100% 225px;
+        left: 0;
+      }
+      &.expertise {
+        background-size: 100% 225px;
+        right: 0;
+      }
+
+      &:hover {
+        height: 225px;
+      }
     }
   }
 

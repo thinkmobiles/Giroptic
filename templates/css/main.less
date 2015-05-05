@@ -338,53 +338,75 @@ html, body {
     height: 115px;
     margin-bottom: 15px;
 
-    & > a {
-      position: absolute;
-      cursor: pointer;
-      height: 190px;
-      width: 520px;
-      margin: 0 15px;
-      float: left;
-      bottom: 0;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: #acacac;
-      font-family: "Zona Pro", serif;
-      font-weight: 100;
-      padding: 22px;
-      -moz-transition: height 700ms ease;
-      -o-transition: height 700ms ease;
-      -webkit-transition: height 700ms ease;
-      transition: height 700ms ease;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
 
-      &:hover {
-        height: 225px;
+      &:after {
+        clear: both;
+        content: '';
+        display: table;
+      }
+
+      li {
+        position: relative;
+        display: block;
+        float: left;
+        //margin: 0 15px;
+        height: 115px;
+
+        & > a {
+          position: absolute;
+          cursor: pointer;
+          float: left;
+          bottom: 0;
+          text-transform: uppercase;
+          text-decoration: none;
+          color: #acacac;
+          font-family: "Zona Pro", serif;
+          font-weight: 100;
+          padding: 22px;
+          -moz-transition: height 700ms ease;
+          -o-transition: height 700ms ease;
+          -webkit-transition: height 700ms ease;
+          transition: height 700ms ease;
+        }
+
+        &:first-child {
+          margin-left: 15px;
+        }
+
+        &:last-child {
+          margin-right: 15px;
+        }
       }
     }
 
-    .spec {
-      background: url('../image/spec.jpg') no-repeat 0;
-      background-size: auto 225px;
-      left: 0;
-    }
+
+
+    //.spec {
+    //  background: url('../image/spec.jpg') no-repeat 0;
+    //  background-size: 100% 225px;
+    //  left: 0;
+    //}
 
     .las_vegas {
       background: url('../image/las_vegas.jpg') no-repeat 0;
-      background-size: auto 225px;
-      left: 550px;
+      background-size: 100% 225px;
+      //left: 550px;
+      left: 0;
     }
 
     .expertise {
       background: url('../image/expertise.jpg') no-repeat 0;
-      background-size: auto 225px;
-      right: 30px;
+      background-size: 100% 225px;
+      //right: 30px;
+      left: 0;
     }
   }
 
   .block {
-    float: left;
-    margin: 15px;
-    padding: 30px;
     position: relative;
     overflow: hidden;
 
@@ -504,58 +526,7 @@ html, body {
       &.opacity50 {
         opacity: 0.5;
       }
-      //top: 0;
-      //right: 0;
-      //overflow: hidden;
-      //height: 100%;
-      //width: 100%;
 
-      //&.cams360 {
-      //  background: url('../image/360cams.png') 10% 50% no-repeat;
-      //  background-size: auto 158%;
-      //}
-      //&.virtual {
-      //  background: url('../image/virtual.png') 95% 0 no-repeat;
-      //  background-size: 35%;
-      //}
-      //&.audio {
-      //  background: url('../image/audio.jpg') 0 -50px no-repeat;
-      //  background-size: 100%;
-      //}
-      //&.stabil {
-      //  background: url('../image/stabil.png') 50% no-repeat;
-      //  background-size: 275px;
-      //}
-      //&.licensing {
-      //  background: url('../image/licensing.jpg') 50% no-repeat;
-      //  background-size: auto 100%;
-      //  opacity: 0.39;
-      //}
-      //&.randd {
-      //  background: url('../image/RandD.png') no-repeat 50%;
-      //  background-size: auto;
-      //}
-      //&.app {
-      //  background: url('../image/app.png') no-repeat 50% 20px;
-      //  background-size: auto;
-      //  opacity: 0.39;
-      //}
-      //&.develop {
-      //  background: url('../image/develop.jpg') 50% no-repeat;
-      //  background-size: auto;
-      //}
-      //&.accessoires {
-      //  background: url('../image/accessoires.png') no-repeat 50%;
-      //  background-size: auto;
-      //}
-      //&.camera {
-      //  background: url('../image/camera.png') no-repeat 50%;
-      //  background-size: auto;
-      //}
-      //&.gEYE {
-      //  background: url('../image/g-eye.png') no-repeat calc(50% + 50px) 100%;
-      //  background-size: auto;
-      //}
     }
   }
 
