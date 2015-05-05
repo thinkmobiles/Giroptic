@@ -18,9 +18,6 @@
     </head>
     <body>
         <header id="header" role="header">
-          
-            
-            
             <div class="first">
                 <div class="navigation" role="navigation">
                     <ul>
