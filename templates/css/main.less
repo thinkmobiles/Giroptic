@@ -129,6 +129,8 @@ html, body {
         padding: 0 60px 0 0;
         text-decoration: none;
         text-transform: uppercase;
+        position: relative;
+        z-index: 100;
       }
     }
   }
@@ -189,17 +191,14 @@ html, body {
 }
 
 #header .second {
+  position: relative;
   padding-left: 32px;
   .navigation {
-    position: relative;
     z-index: 5;
     color: #ffffff;
     font-size: 14px;
     padding: 20px 0 0 0;
 
-    ul {
-      padding: 0;
-    }
     li {
       padding: 0 30px;
       a {
@@ -242,59 +241,38 @@ html, body {
   }
 }
 
-.popup-menu {
+.navigation .sub-menu {
+  background: #fff;
+  color: #4b4b4b;
   position: absolute;
-  top: 40px;
+  padding: 0;
   left: 0;
+  top: 0;
   height: 0;
   width: 100%;
-  background-color: #ffffff;
   overflow: hidden;
+  display: none;
 
-  .popup-menu-group {
-    display: none;
-    bottom: 30px;
-    width: 1300px;
-    margin: 90px auto 0 auto;
+  li {
+    padding: 80px 0 0 0 !important;
+    width: 33.33%;
 
-    &.active {
+    a {
+      text-align: center;
+      width: 100%;
+    }
+
+    img {
       display: block;
-    }
-
-    &:after {
-      content: '';
-      clear: both;
-      display: table;
-    }
-
-    .popup-menu-item {
-      float: left;
-      width: 33.33%;
-
-      .item-img {
-        vertical-align: middle;
-        height: 65px;
-      }
-      img {
-        margin: 0 auto;
-        display: block;
-      }
-      label {
-        color: #b0b0b0;
-        margin-top: 20px;
-        text-align: center;
-        text-transform: uppercase;
-        width: 100%;
-      }
-    }
-
-    &:last-child {
-      .popup-menu-item {
-        width: 50%;
-      }
+      margin: 0 auto;
+      height: 60px;
+      width: auto;
     }
   }
 
+  &.active {
+    display: block;
+  }
 }
 
 #slider {
@@ -336,7 +314,6 @@ html, body {
   .slider-menu {
     position: relative;
     height: 115px;
-    margin-bottom: 15px;
 
     ul {
       margin: 0;
@@ -353,10 +330,10 @@ html, body {
         position: relative;
         display: block;
         float: left;
-        //margin: 0 15px;
-        height: 115px;
+        //height: 115px;
 
         & > a {
+          overflow: hidden;
           position: absolute;
           cursor: pointer;
           float: left;
@@ -366,11 +343,23 @@ html, body {
           color: #acacac;
           font-family: "Zona Pro", serif;
           font-weight: 100;
-          padding: 22px;
           -moz-transition: height 700ms ease;
           -o-transition: height 700ms ease;
           -webkit-transition: height 700ms ease;
           transition: height 700ms ease;
+
+          span {
+            position: relative;
+            z-index: 2;
+          }
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            min-height: 100%;
+            width: 100%;
+          }
         }
 
         &:first-child {
@@ -382,8 +371,6 @@ html, body {
         }
       }
     }
-
-
 
     //.spec {
     //  background: url('../image/spec.jpg') no-repeat 0;
