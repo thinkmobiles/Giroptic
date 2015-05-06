@@ -1,5 +1,10 @@
 (function ($) {
 	$(document).ready(function () {
+        //custom
+        $('.description').find('img').css('max-width', '100px');
+        $('.description').find('img').css('max-height', '100px');
+        
+        
 		var menuImageUpdate = function( item_id, thumb_id, is_hover ) {
 			wp.media.post( 'set-menu-item-thumbnail', {
 				json:         true,
@@ -9,6 +14,9 @@
 				_wpnonce:     menuImage.settings.nonce
 			}).done( function( html ) {
 				$('.field-image', '#menu-item-' + item_id).html( html );
+                //Custom
+                $('.description').find('img').css('max-width', '100px');
+                $('.description').find('img').css('max-height', '100px');
 			});
 		};
 
