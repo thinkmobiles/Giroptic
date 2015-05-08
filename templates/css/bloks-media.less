@@ -21,7 +21,6 @@
   //  width: 300px;
   //  margin: 0 auto;
   //}
-
   #main .main-title {
     font-size: 22.5px;
     //position: initial;
@@ -49,7 +48,13 @@
     padding: 0;
 
     .discover {
-      display: none;
+      //display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: none;
     }
     .withDisc {
       bottom: 0;
@@ -65,10 +70,8 @@
 
   #main .block .img.img-left,
   #main .block .img.img-right,
-  #main .block .img.img-full-top,
-  #main .block .img.img-full-left,
-  #main .block .img.img-full-right,
-  #main .block .img.img-full-center{
+  #main .block .img.img-full,
+  #main .block .img.img-full-center {
     position: initial;
 
     img {
@@ -91,7 +94,7 @@
     max-width: 100%;
   }
 
-  #main .block .img.img-center-middle img {
+  #main .block .img.img-center img {
     max-width: 50%;
     margin: 10px auto;
   }
@@ -101,12 +104,12 @@
     min-width: 100%;
   }
 
-  #main .block .img.img-right img,#main .block .img.img-left img {
+  #main .block .img.img-right img, #main .block .img.img-left img {
     height: initial;
     max-height: 100%;
   }
 
-  #main .block .img.img-center-middle {
+  #main .block .img.img-center {
     display: block;
     text-align: center;
     vertical-align: middle;
@@ -144,14 +147,8 @@
     width: 50%;
   }
 
-  //#main .slider-menu ul {
-  //  margin: 0;
-  //  width: inherit;
-  //}
-
   #main .main-title {
     font-size: 22.5px;
-    //position: absolute;
   }
 
   #main .main-body .title {
@@ -170,10 +167,14 @@
   }
 
   #main .block {
-    //position: relative;
     padding: 10px;
     .discover {
-      display: block;
+      position: initial;
+      top: 0;
+      left: 0;
+      width: 155px;
+      height: 38px;
+      background: url('../image/discover.png') no-repeat;
     }
     .withDisc {
       bottom: -43px;
@@ -188,22 +189,21 @@
   }
 
   #main .block .img img {
-    //display: block;
     max-width: initial;
   }
 
-  #main .block .img.img-center-middle img {
+  #main .block .img.img-center img {
     max-width: 100%;
     margin: 0 auto;
   }
 
   #main .block .img.img-left,
   #main .block .img.img-right,
-  #main .block .img.img-full-top,
-  #main .block .img.img-full-left,
-  #main .block .img.img-full-right,
+  #main .block .img.img-full,
   #main .block .img.img-full-center {
     position: absolute;
+    //top: 0;
+    //left: 0;
   }
 
   #main .block .img.img-full-center img {
@@ -221,11 +221,11 @@
     min-height: 385px;
   }
 
-  #main .block .img.img-right img,#main .block .img.img-left img {
+  #main .block .img.img-right img, #main .block .img.img-left img {
     height: 385px;
   }
 
-  #main .block .img.img-center-middle {
+  #main .block .img.img-center {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
