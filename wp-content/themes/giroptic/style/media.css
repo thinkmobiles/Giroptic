@@ -1,9 +1,42 @@
 @media screen and (min-width: 0px) {
   #slider {
-    height: 980px;
+    height: 730px;
+  }
+  #slider li,
+  #main .slider-menu ul li:first-child,
+  #main .slider-menu ul li:last-child {
+    margin: 0 7px;
+  }
+  #slider h2 {
+    top: 100px;
+    left: calc(50vw - 180px);
+    text-align: center;
+  }
+  #slider img {
+    top: 300px;
+  }
+  #scroll-header li a {
+    padding: 0 15px 0 0;
+    font-size: 10px;
+    display: none;
+  }
+  #scroll-header li a.search,
+  #scroll-header li a.language,
+  #scroll-header li a.social {
+    display: block;
+  }
+  #scroll-header {
+    padding: 0 5px;
   }
   #main .content {
-    width: 320px;
+    width: auto;
+  }
+  #main .block.table .main-title {
+    top: 10px;
+    left: 10px;
+  }
+  .full-block .main-body .body {
+    width: 100%;
   }
   #header .first {
     display: none;
@@ -17,6 +50,10 @@
   #main .slider-menu {
     height: 20px;
     margin: -32px 0 0 0;
+  }
+  #main .slider-menu ul {
+    margin: 0 auto;
+    width: 300px;
   }
   #main .slider-menu li {
     margin: 0 7px;
@@ -36,14 +73,6 @@
     margin: 15px auto;
     padding: 10px;
   }
-  .full-block,
-  .half-block,
-  .third-block,
-  .two-thirds,
-  .two-row {
-    height: 147px;
-    width: 296px;
-  }
   #footer .footer-container {
     width: 296px;
   }
@@ -55,8 +84,9 @@
   #footer .footer-row {
     height: inherit;
   }
-  #footer .logo-content {
-    width: 250px;
+  #footer .footer-container .column.logo-content {
+    margin: 0;
+    width: 100%;
   }
   .follow-us h3,
   .newsletter h3 {
@@ -95,12 +125,37 @@
   #slider {
     height: 980px;
   }
+  #main .slider-menu ul {
+    margin: 0;
+    width: initial;
+  }
+  #main .slider-menu ul li {
+    margin: 0 16px;
+  }
+  #main .slider-menu ul li:first-child {
+    margin-left: 15px;
+  }
+  #main .slider-menu ul li:last-child {
+    margin-right: 15px;
+  }
+  #scroll-header {
+    padding: 0 0 0 32px;
+  }
+  #scroll-header li a {
+    font-size: 14px;
+  }
   #main .content {
     width: 750px;
   }
+  #main .block.table .main-title {
+    top: 30px;
+    left: 30px;
+  }
+  #main .main-body {
+    left: 30px;
+  }
   #main .slider-menu {
     height: 55px;
-    margin: 0 0 15px 0;
   }
   #main .slider-menu li {
     background-color: inherit;
@@ -154,7 +209,8 @@
   #footer .footer-row {
     height: inherit;
   }
-  #footer .logo-content {
+  #footer .footer-container .column.logo-content {
+    margin: 0 25px 0 0;
     width: 250px;
   }
   .follow-us h3,
@@ -191,11 +247,34 @@
   }
 }
 @media screen and (min-width: 1024px) {
+  #main .slider-menu ul li {
+    margin: 0 15px;
+  }
+  #main .slider-menu ul li:first-child {
+    margin: 0 15px;
+  }
+  #main .slider-menu ul li:last-child {
+    margin: 0 15px;
+  }
   #slider {
     height: 715px;
   }
+  #slider h2 {
+    top: 200px;
+    left: 200px;
+    text-align: left;
+  }
+  #slider img {
+    top: 200px;
+  }
+  #scroll-header li a {
+    padding: 0 60px 0 0;
+  }
   #main .content {
     width: 1024px;
+  }
+  .full-block .main-body .body {
+    width: calc(50%);
   }
   #header .first {
     display: block;
@@ -289,9 +368,11 @@
     width: 1057px;
   }
   #main .slider-menu {
+    margin: 0 0 15px 0;
     height: 70px;
   }
   #main .slider-menu li {
+    height: 115px;
     width: 386px;
   }
   #main .slider-menu li > a {
@@ -372,7 +453,7 @@
     height: 225px;
   }
   .full-block {
-    margin: 0 15px;
+    margin: 15px;
     height: 385px;
     width: 1616px;
   }
