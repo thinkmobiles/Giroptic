@@ -20,12 +20,17 @@ $(document).ready(function () {
     $(document).scroll(function () {
         var heightHead = $("#header").height();
         var posTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+        if($('body').hasClass('customize-support')) {
+            var top = -8;
+        } else {
+            var top = -40;
+        }
 
         if (posTop > heightHead - 25) {
-            $('#scroll-header').css({top: 0});
+            $('#scroll-header').css({top: top + 40});
             $('#scroll-header').removeClass('fast');
         } else {
-            $('#scroll-header').css({top: -40});
+            $('#scroll-header').css({top: top});
             $('#scroll-header').addClass('fast');
         }
     });
