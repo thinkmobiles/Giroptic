@@ -230,6 +230,9 @@ class homep_widget extends WP_Widget {
                 <option value='grey'<?php echo ($type == 'grey') ? 'selected' : ''; ?>>
                     Grey
                 </option> 
+                <option value='dark-grey'<?php echo ($type == 'dark-grey') ? 'selected' : ''; ?>>
+                    Dark grey
+                </option> 
             </select>
         </p>
         <p>
@@ -250,6 +253,9 @@ class homep_widget extends WP_Widget {
                     1/3
                 </option> 
                 <option value='two-row third-block'<?php echo ($size == 'two-row third-block') ? 'selected' : ''; ?>>
+                    1/3 x 2
+                </option> 
+                <option value='two-thirds'<?php echo ($size == 'two-thirds') ? 'selected' : ''; ?>>
                     2/3
                 </option> 
             </select>

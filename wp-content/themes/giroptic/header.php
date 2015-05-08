@@ -10,9 +10,11 @@
     <head lang="en">
         <meta charset="UTF-8">
         <meta name="robots" content="noindex, nofollow">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <title>360</title>
         <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style/bootstrap.min.css" type="text/css" />
         <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style/main.css" type="text/css" />
+        <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style/blocks-media.css" type="text/css" />
         <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style/media.css" type="text/css" />
         <?php wp_head(); ?>
     </head>

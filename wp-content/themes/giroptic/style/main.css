@@ -54,6 +54,9 @@ body {
   -webkit-transition: top 100ms;
   transition: top 100ms;
 }
+#scroll-header ul {
+  padding: 0;
+}
 .logo {
   background: url('../image/LOGO.png') no-repeat 0 50%;
   height: 40px;
@@ -98,7 +101,7 @@ body {
   display: block;
   height: 40px;
   line-height: 40px;
-  padding: 0 10px;
+  padding: 0 10px !important;
   width: 55px;
 }
 .navigation .search:hover,
@@ -227,11 +230,12 @@ body {
   left: 140px;
   font-weight: 100;
   text-transform: uppercase;
+  z-index: 5;
 }
 #slider img {
   position: absolute;
-  right: 200px;
   top: 200px;
+  width: 300px;
 }
 #main {
   background: linear-gradient(to top, #ffffff, #f0f0f0);
@@ -318,10 +322,6 @@ body {
   display: table;
   border-collapse: collapse;
 }
-#main .block.table .main-title {
-  top: 30px;
-  left: 30px;
-}
 #main .block:hover .withDisc {
   bottom: 30px;
 }
@@ -355,7 +355,6 @@ body {
   margin: -30px 0 0 -30px;
 }
 #main .block .img.img-center-middle img {
-  max-width: 100%;
   max-height: 100%;
 }
 #main .block .img.img-center-full {
@@ -370,6 +369,7 @@ body {
   left: 0;
 }
 #main .block .img.img-full-top img {
+  min-height: 100%;
   width: 100%;
 }
 #main .block .img.img-full-left {
@@ -480,9 +480,6 @@ body {
 .half-block .main-body .body {
   width: calc(100%);
 }
-.third-block .main-body {
-  width: 460px;
-}
 .third-block .main-body .body {
   width: calc(100%);
 }
@@ -491,9 +488,6 @@ body {
 }
 .two-thirds .main-body .body {
   width: calc(100%);
-}
-.two-row .main-body {
-  width: 460px;
 }
 .two-row .main-body .body {
   width: calc(100%);

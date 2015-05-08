@@ -7,6 +7,7 @@
 get_header();
 ?>
 <div id="slider">
+    <h2><?php echo get_bloginfo('description');?></h2>
     <?php
     $img_url = get_theme_mod(giroptic_backgound_image);
     if (isset($img_url)):
