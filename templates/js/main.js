@@ -35,7 +35,7 @@ $(document).ready(function () {
         }
     });
 
-    $('.second .menu > li >a.action').hover(function (e) {
+    $('.second .menu > li >a').hover(function (e) {
         $('.second').addClass('open');
         $('#header').height(260);
         $('.second .navigation').find('.active').removeClass('active');
