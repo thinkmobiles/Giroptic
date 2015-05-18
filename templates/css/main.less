@@ -119,11 +119,6 @@ html, body {
     }
   }
 
-  #search {
-    background: url('../image/search.png') no-repeat 50%;
-    border: none;
-  }
-
   .language {
     text-transform: none;
 
@@ -139,6 +134,12 @@ html, body {
   .social {
     background: url('../image/share.png') no-repeat 50%;
   }
+}
+
+#search {
+  background: url('../image/search.png') no-repeat 50%;
+  border: none;
+  float: right;
 }
 
 #header .first {
@@ -162,7 +163,7 @@ html, body {
 
 #header .second {
   position: relative;
-  padding-left: 32px;
+  padding: 0 32px;
 
   .rectangle {
     position: absolute;
@@ -186,20 +187,22 @@ html, body {
         }
       }
     }
-    #search {
-      background-color: #acacac;
-      border-radius: 20px;
-      border: 1px solid #cccccc;
-      cursor: pointer;
-      display: block;
-      height: 40px;
-      line-height: 40px;
-      padding: 0 10px;
-      width: 40px;
+  }
 
-      &:hover {
-        background-color: #acacac;
-      }
+  #search {
+    background-color: #acacac;
+    border-radius: 20px;
+    border: 1px solid #cccccc;
+    cursor: pointer;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+    margin-top: 20px;
+    width: 40px;
+
+    &:hover {
+      background-color: #acacac;
     }
   }
 
