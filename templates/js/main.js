@@ -35,11 +35,11 @@ $(document).ready(function () {
         }
     });
 
-    $('.second .menu > li >a').hover(function (e) {
+    $('.second .menu > li >a.action').hover(function (e) {
         $('.second').addClass('open');
         $('#header').height(260);
         $('.second .navigation').find('.active').removeClass('active');
-        e.currentTarget.className = 'active';
+        e.currentTarget.className = e.currentTarget.className + ' active';
         $(e.target).parent('li').find('ul').addClass('active');
         if ($('.second .sub-menu').height() != 220) {
             $('.second .sub-menu').stop().animate({height: 220}, 500);
