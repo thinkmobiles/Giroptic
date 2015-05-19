@@ -15,9 +15,32 @@
     <div class="first">
         <div class="navigation" role="navigation">
             <ul>
-                <li><a>S’identifier</a></li>
-                <li><a class="language">France<i class="arrow-down"></i></a></li>
-                <li><span class="social"></span></li>
+                <li>
+                    <a>
+                        <div>S’identifier</div>
+                        <div class="hover">S’identifier</div>
+                    </a>
+                </li>
+                <li class="popup">
+                    <a class="language">
+                        <div>France<i class="arrow-down"></i></div>
+                        <div class="hover">France<i class="arrow-down"></i></div>
+                    </a>
+                    <ul class="popup-menu">
+                        <li>
+                            <a>English</a>
+                        </li>
+                        <li>
+                            <a>Spanich</a>
+                        </li>
+                        <li>
+                            <a>Japan</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="social"></span>
+                </li>
             </ul>
         </div>
     </div>
@@ -38,21 +61,21 @@
                             <li id="menu-item-94"
                                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-94"><a
                                     class="menu-image-title-after menu-image-not-hovered"><img width="63" height="63"
-                                                                                               src="http://giroptic.tv/wp-content/uploads/2015/05/tech_1.png"
+                                                                                               src="image/tech_1.png"
                                                                                                class="menu-image menu-image-title-after"
                                                                                                alt="tech_1">360 VST</a>
                             </li>
                             <li id="menu-item-95"
                                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-95"><a
                                     class="menu-image-title-after menu-image-not-hovered"><img width="74" height="66"
-                                                                                               src="http://giroptic.tv/wp-content/uploads/2015/05/tech_2.png"
+                                                                                               src="image/tech_2.png"
                                                                                                class="menu-image menu-image-title-after"
                                                                                                alt="tech_2">IMAGE
                                 STAB</a></li>
                             <li id="menu-item-96"
                                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-96"><a
                                     class="menu-image-title-after menu-image-not-hovered"><img width="62" height="56"
-                                                                                               src="http://giroptic.tv/wp-content/uploads/2015/05/tech_3.png"
+                                                                                               src="image/tech_3.png"
                                                                                                class="menu-image menu-image-title-after"
                                                                                                alt="tech_3">IMMERSIVE
                                 SOUND</a></li>
@@ -65,21 +88,21 @@
                             <li id="menu-item-113"
                                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-113"><a
                                     class="menu-image-title-after menu-image-not-hovered"><img width="62" height="63"
-                                                                                               src="http://giroptic.tv/wp-content/uploads/2015/05/our_1.png"
+                                                                                               src="image/our_1.png"
                                                                                                class="menu-image menu-image-title-after"
                                                                                                alt="our_1">Product
                                 dev</a></li>
                             <li id="menu-item-114"
                                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-114"><a
                                     class="menu-image-title-after menu-image-not-hovered"><img width="107" height="40"
-                                                                                               src="http://giroptic.tv/wp-content/uploads/2015/05/our_2.png"
+                                                                                               src="image/our_2.png"
                                                                                                class="menu-image menu-image-title-after"
                                                                                                alt="our_2">lICENSING</a>
                             </li>
                             <li id="menu-item-115"
                                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-115"><a
                                     class="menu-image-title-after menu-image-not-hovered"><img width="99" height="65"
-                                                                                               src="http://giroptic.tv/wp-content/uploads/2015/05/our_3.png"
+                                                                                               src="image/our_3.png"
                                                                                                class="menu-image menu-image-title-after"
                                                                                                alt="our_3">R&amp;D</a>
                             </li>
@@ -99,7 +122,20 @@
             <li><a>features</a></li>
             <li><a>about us</a></li>
             <li><span class="search"></span></li>
-            <li><a class="language">Fr<i class="arrow-down"></i></a></li>
+            <li class="popup">
+                <a class="language">Fr<i class="arrow-down"></i></a>
+                <ul class="popup-menu">
+                    <li>
+                        <a>En</a>
+                    </li>
+                    <li>
+                        <a>Sp</a>
+                    </li>
+                    <li>
+                        <a>Jp</a>
+                    </li>
+                </ul>
+            </li>
             <li><span class="social"></span></li>
         </ul>
     </div>
@@ -382,6 +418,13 @@
         <span>2015 &copy; GIROPTIC SA. All Rights Reseved. Legal disclaimer</span>
     </div>
 </footer>
+<div class="search-block">
+    <div class="search-wrapper"></div>
+    <div class="search-area">
+        <input type="text" placeholder="Rechercher">
+        <input type="submit" value="&nbsp;"/>
+    </div>
+</div>
 <script src="js/jquery.js"></script>
 <script src="js/main.js"></script>
 </body>

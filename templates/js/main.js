@@ -6,6 +6,12 @@ $(document).ready(function () {
         smooth();
     });
 
+    $(document).click(function(e){
+        if(!$(e.target).parents('.popup').length) {
+            $('.popup').removeClass('open');
+        }
+    });
+
     $(document).mousemove(function(e){
         var Y = e.pageY;
         if (Y >= 260 && $('.second .sub-menu').height() == 220) {
@@ -18,6 +24,7 @@ $(document).ready(function () {
     });
 
     $(document).scroll(function () {
+        $('.popup').removeClass('open');
         var heightHead = $("#header").height();
         var posTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
         if($('body').hasClass('customize-support')) {
@@ -35,6 +42,22 @@ $(document).ready(function () {
         }
     });
 
+    $('#header .popup').click(function(){
+        if($('#header').find('.popup').hasClass('open')) {
+            $('#header').find('.popup').removeClass('open');
+        } else {
+            $('#header').find('.popup').addClass('open');
+        }
+    });
+
+    $('#scroll-header').find('.popup').click(function(){
+        if($('#scroll-header').find('.popup').hasClass('open')) {
+            $('#scroll-header').find('.popup').removeClass('open');
+        } else {
+            $('#scroll-header').find('.popup').addClass('open');
+        }
+    });
+
     $('.second .menu > li >a').hover(function (e) {
         $('.second').addClass('open');
         $('#header').height(260);
@@ -44,6 +67,16 @@ $(document).ready(function () {
         if ($('.second .sub-menu').height() != 220) {
             $('.second .sub-menu').stop().animate({height: 220}, 500);
         }
+    });
+
+    $('#search').click(function(){
+        $('.search-block').css('display','block');
+        $('.search-area input[type=text]').val('');
+        $('.search-area input[type=text]').focus();
+    });
+
+    $('.search-wrapper').click(function(){
+        $('.search-block').css('display','none');
     });
 
     function smooth() {
