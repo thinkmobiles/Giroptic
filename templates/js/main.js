@@ -1,18 +1,28 @@
 $(document).ready(function () {
+    var lastTop = 0;
+    var nextTop = 0;
+    var scrolling;
+    var spec = $('.slider-menu').eq(0).offset().top;
+
+    if ($('body').hasClass('customize-support')) {
+        var top = -8;
+    } else {
+        var top = -40;
+    }
 
     smooth();
 
-    $( window ).resize(function() {
+    $(window).resize(function () {
         smooth();
     });
 
-    $(document).click(function(e){
-        if(!$(e.target).parents('.popup').length) {
+    $(document).click(function (e) {
+        if (!$(e.target).parents('.popup').length) {
             $('.popup').removeClass('open');
         }
     });
 
-    $(document).mousemove(function(e){
+    $(document).mousemove(function (e) {
         var Y = e.pageY;
         if (Y >= 260 && $('.second .sub-menu').height() == 220) {
             $('.second .sub-menu').stop().animate({height: 0}, 500, function () {
@@ -23,35 +33,60 @@ $(document).ready(function () {
         }
     });
 
-    $(document).scroll(function () {
+    $(document).scroll(function (e) {
         $('.popup').removeClass('open');
         var heightHead = $("#header").height();
-        var posTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
-        if($('body').hasClass('customize-support')) {
-            var top = -8;
-        } else {
-            var top = -40;
-        }
+        nextTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
 
-        if (posTop > heightHead - 25) {
+        if (nextTop > heightHead - 25) {
             $('#scroll-header').css({top: top + 40});
             $('#scroll-header').removeClass('fast');
         } else {
             $('#scroll-header').css({top: top});
             $('#scroll-header').addClass('fast');
         }
+
+        if (scrolling) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        if (nextTop >= 0 && nextTop <= spec && !scrolling) {
+
+            if (nextTop >= lastTop) {
+                console.log('Меньше!');
+                if (nextTop < spec) {
+                    scrolling = true;
+                    $('#slider').animate({opacity:0}, 500);
+                    $('body').animate({scrollTop: spec}, 500, function() {
+                        scrolling = false;
+                        lastTop = nextTop;
+                    });
+                }
+            } else {
+                console.log('Больше!');
+                if (nextTop < spec) {
+                    scrolling = true;
+                    $('#slider').animate({opacity:1}, 500);
+                    $('body').animate({scrollTop: 0}, 500, function() {
+                        scrolling = false;
+                        lastTop = nextTop;
+                    });
+                }
+            }
+        }
+
     });
 
-    $('#header .popup').click(function(){
-        if($('#header').find('.popup').hasClass('open')) {
+    $('#header .popup').click(function () {
+        if ($('#header').find('.popup').hasClass('open')) {
             $('#header').find('.popup').removeClass('open');
         } else {
             $('#header').find('.popup').addClass('open');
         }
     });
 
-    $('#scroll-header').find('.popup').click(function(){
-        if($('#scroll-header').find('.popup').hasClass('open')) {
+    $('#scroll-header').find('.popup').click(function () {
+        if ($('#scroll-header').find('.popup').hasClass('open')) {
             $('#scroll-header').find('.popup').removeClass('open');
         } else {
             $('#scroll-header').find('.popup').addClass('open');
@@ -69,14 +104,25 @@ $(document).ready(function () {
         }
     });
 
-    $('#search').click(function(){
-        $('.search-block').css('display','block');
+    $('.login').click(function () {
+        $('.login-block').css('display', 'block');
+        $(".login-area input[type='email']").val('');
+        $(".login-area input[type='password']").val('');
+        $(".login-area input[type='email']").focus();
+    });
+
+    $('.login-wrapper').click(function () {
+        $('.login-block').css('display', 'none');
+    });
+
+    $('#search').click(function () {
+        $('.search-block').css('display', 'block');
         $('.search-area input[type=text]').val('');
         $('.search-area input[type=text]').focus();
     });
 
-    $('.search-wrapper').click(function(){
-        $('.search-block').css('display','none');
+    $('.search-wrapper').click(function () {
+        $('.search-block').css('display', 'none');
     });
 
     function smooth() {

@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/main.css" type="text/css">
     <link rel="stylesheet" href="css/bloks-media.css" type="text/css">
     <link rel="stylesheet" href="css/media.css" type="text/css">
-
 </head>
 <body>
 <header id="header" role="header">
@@ -17,8 +16,8 @@
             <ul>
                 <li>
                     <a>
-                        <div>S’identifier</div>
-                        <div class="hover">S’identifier</div>
+                        <div class="login">S’identifier</div>
+                        <div class="hover login">S’identifier</div>
                     </a>
                 </li>
                 <li class="popup">
@@ -423,6 +422,29 @@
     <div class="search-area">
         <input type="text" placeholder="Rechercher">
         <input type="submit" value="&nbsp;"/>
+    </div>
+</div>
+<div class="login-block">
+    <div class="login-wrapper"></div>
+    <div class="login-area">
+        <div class="login-header">
+            <span>Login Giroptic</span>
+        </div>
+        <div class="login-content">
+            <input class='fields' type="email" placeholder="Email*"/>
+            <input class='fields' type="password" placeholder="Password"/>
+            <div class="accept">
+                <input type="checkbox" id="login-accept"/>
+                <label class="login-accept" for="login-accept">
+                    I have read and accept the
+                    <a>Terms an Conditions</a>
+                </label>
+            </div>
+            <button class="btn blue">Valider</button>
+        </div>
+        <div class="login-footer">
+            <button class="btn grey">Demande d’accès</button>
+        </div>
     </div>
 </div>
 <script src="js/jquery.js"></script>
