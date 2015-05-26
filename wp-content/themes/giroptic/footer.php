@@ -83,7 +83,36 @@
         </span>
     </div>
 </footer>
-
+<div class="search-block">
+    <div class="search-wrapper"></div>
+    <div class="search-area">
+        <input type="text" placeholder="Rechercher">
+        <input type="submit" value="&nbsp;"/>
+    </div>
+</div>
+<div class="login-block">
+    <div class="login-wrapper"></div>
+    <div class="login-area">
+        <div class="login-header">
+            <span>Login Giroptic</span>
+        </div>
+        <div class="login-content">
+            <input class='fields' type="email" placeholder="Email*"/>
+            <input class='fields' type="password" placeholder="Password"/>
+            <div class="accept">
+                <input type="checkbox" id="login-accept"/>
+                <label class="login-accept" for="login-accept">
+                    I have read and accept the
+                    <a>Terms an Conditions</a>
+                </label>
+            </div>
+            <button class="btn blue">Valider</button>
+        </div>
+        <div class="login-footer">
+            <button class="btn grey">Demande d’accès</button>
+        </div>
+    </div>
+</div>
 <script src="<?php bloginfo('template_directory'); ?>/script/jquery.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/script/main.js"></script>
 <?php wp_footer(); ?>

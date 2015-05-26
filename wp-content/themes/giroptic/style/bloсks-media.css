@@ -39,7 +39,12 @@
     padding: 0;
   }
   #main .block .discover {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
   }
   #main .block .withDisc {
     bottom: 0;
@@ -52,17 +57,13 @@
   }
   #main .block .img.img-left,
   #main .block .img.img-right,
-  #main .block .img.img-full-top,
-  #main .block .img.img-full-left,
-  #main .block .img.img-full-right,
+  #main .block .img.img-full,
   #main .block .img.img-full-center {
     position: initial;
   }
   #main .block .img.img-left img,
   #main .block .img.img-right img,
-  #main .block .img.img-full-top img,
-  #main .block .img.img-full-left img,
-  #main .block .img.img-full-right img,
+  #main .block .img.img-full img,
   #main .block .img.img-full-center img {
     max-width: 100%;
   }
@@ -77,7 +78,7 @@
   #main .block .img img {
     max-width: 100%;
   }
-  #main .block .img.img-center-middle img {
+  #main .block .img.img-center img {
     max-width: 50%;
     margin: 10px auto;
   }
@@ -90,7 +91,7 @@
     height: initial;
     max-height: 100%;
   }
-  #main .block .img.img-center-middle {
+  #main .block .img.img-center {
     display: block;
     text-align: center;
     vertical-align: middle;
@@ -145,7 +146,12 @@
     padding: 10px;
   }
   #main .block .discover {
-    display: block;
+    position: initial;
+    top: 0;
+    left: 0;
+    width: 155px;
+    height: 38px;
+    background: url('../image/discover.png') no-repeat;
   }
   #main .block .withDisc {
     bottom: -43px;
@@ -159,15 +165,13 @@
   #main .block .img img {
     max-width: initial;
   }
-  #main .block .img.img-center-middle img {
+  #main .block .img.img-center img {
     max-width: 100%;
     margin: 0 auto;
   }
   #main .block .img.img-left,
   #main .block .img.img-right,
-  #main .block .img.img-full-top,
-  #main .block .img.img-full-left,
-  #main .block .img.img-full-right,
+  #main .block .img.img-full,
   #main .block .img.img-full-center {
     position: absolute;
   }
@@ -187,7 +191,7 @@
   #main .block .img.img-left img {
     height: 385px;
   }
-  #main .block .img.img-center-middle {
+  #main .block .img.img-center {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
