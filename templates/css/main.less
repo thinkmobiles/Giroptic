@@ -56,6 +56,7 @@ html, body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  //overflow: hidden;
 
   &.fast {
     -moz-transition: top 100ms;
@@ -88,6 +89,7 @@ html, body {
     height: 40px;
     width: 56px;
     padding: 0 10px;
+    cursor: pointer;
 
     &:hover {
       background-color: #636363;
@@ -140,7 +142,7 @@ html, body {
     }
   }
 
-  #search, .language, .social {
+  #search, .language, .social, .social-active {
     border-left: 1px solid #636363;
     cursor: pointer;
     display: block;
@@ -163,6 +165,33 @@ html, body {
 
   .social {
     background: url('../image/share.png') no-repeat 50%;
+    position: relative;
+  }
+  .social-active {
+    background: url('../image/share-active.png') no-repeat 50% #44bbff;
+    position: relative;
+  }
+
+
+  .social-block {
+    position: relative;
+    overflow: hidden;
+    height: 40px;
+
+    .social, .social-active {
+      top: 0;
+      -webkit-transition: top 500ms ease;
+      -moz-transition: top 500ms ease;
+      -ms-transition: top 500ms ease;
+      -o-transition: top 500ms ease;
+      transition: top 500ms ease;
+    }
+
+    &:hover {
+      .social, .social-active {
+        top: -40px;
+      }
+    }
   }
 }
 

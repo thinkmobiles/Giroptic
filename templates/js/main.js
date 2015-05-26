@@ -53,7 +53,6 @@ $(document).ready(function () {
         if (nextTop >= 0 && nextTop <= spec && !scrolling) {
 
             if (nextTop >= lastTop) {
-                console.log('Меньше!');
                 if (nextTop < spec) {
                     scrolling = true;
                     $('#slider').animate({opacity:0}, 500);
@@ -63,7 +62,6 @@ $(document).ready(function () {
                     });
                 }
             } else {
-                console.log('Больше!');
                 if (nextTop < spec) {
                     scrolling = true;
                     $('#slider').animate({opacity:1}, 500);
@@ -115,7 +113,7 @@ $(document).ready(function () {
         $('.login-block').css('display', 'none');
     });
 
-    $('#search').click(function () {
+    $('#search,.search').click(function () {
         $('.search-block').css('display', 'block');
         $('.search-area input[type=text]').val('');
         $('.search-area input[type=text]').focus();
