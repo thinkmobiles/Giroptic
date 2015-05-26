@@ -24,7 +24,7 @@ $(document).ready(function () {
 
     $(document).mousemove(function (e) {
         var Y = e.pageY;
-        if (Y >= 260 && $('.second .sub-menu').height() == 220) {
+        if ((Y >= 260 && $('.second .sub-menu').height() == 220) || (Y <= 40)) {
             $('.second .sub-menu').stop().animate({height: 0}, 500, function () {
                 $('#header').height(120);
                 $('.second').removeClass('open');
@@ -55,8 +55,8 @@ $(document).ready(function () {
             if (nextTop >= lastTop) {
                 if (nextTop < spec) {
                     scrolling = true;
-                    $('#slider').animate({opacity:0}, 500);
-                    $('body').animate({scrollTop: spec}, 500, function() {
+                    $('#slider').animate({opacity: 0}, 500);
+                    $('body').animate({scrollTop: spec}, 500, function () {
                         scrolling = false;
                         lastTop = nextTop;
                     });
@@ -64,8 +64,8 @@ $(document).ready(function () {
             } else {
                 if (nextTop < spec) {
                     scrolling = true;
-                    $('#slider').animate({opacity:1}, 500);
-                    $('body').animate({scrollTop: 0}, 500, function() {
+                    $('#slider').animate({opacity: 1}, 500);
+                    $('body').animate({scrollTop: 0}, 500, function () {
                         scrolling = false;
                         lastTop = nextTop;
                     });
