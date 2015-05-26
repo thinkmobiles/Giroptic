@@ -67,6 +67,19 @@ html, body {
 
   ul {
     padding: 0;
+
+    li {
+      position: relative;
+      max-height: 40px;
+
+      .hover {
+        color: #4bf;
+
+        .arrow-down {
+          background-image: url('../image/arrow-down-hover.png');
+        }
+      }
+    }
   }
 
   #search, .language, .social {
@@ -93,6 +106,33 @@ html, body {
 
     &:hover {
       background-color: #636363;
+    }
+  }
+
+
+  a {
+    //padding: 0 40px;
+    //text-transform: none;
+    //color: rgb(172, 172, 172);
+    height: 40px;
+    overflow: hidden;
+
+    div {
+      position: relative;
+      top: 0;
+      -webkit-transition: top 500ms ease;
+      -moz-transition: top 500ms ease;
+      -ms-transition: top 500ms ease;
+      -o-transition: top 500ms ease;
+      transition: top 500ms ease;
+    }
+
+    &:hover {
+      background-color: #636363;
+
+      div {
+        top: -40px;
+      }
     }
   }
 }
@@ -212,6 +252,10 @@ html, body {
 
       .hover {
         color: #44bbff;
+
+        .arrow-down {
+          background-image: url('../image/arrow-down-hover.png');
+        }
       }
     }
 
@@ -368,13 +412,16 @@ html, body {
     font-weight: 100;
     text-transform: uppercase;
     z-index: 5;
-    width: 360px;
+    width: 450px;
+    font-family: "Zona-Light", serif;
+    font-size: 36px;
   }
 
   img {
     position: absolute;
     top: 200px;
-    width: 300px;
+    width: 550px;
+    //height: 500px;
   }
 }
 
@@ -423,7 +470,7 @@ html, body {
           text-transform: uppercase;
           text-decoration: none;
           color: #acacac;
-          font-family: "Zona Pro", serif;
+          //font-family: "Zona Pro", serif;
           font-weight: 100;
           -moz-transition: height 700ms ease;
           -o-transition: height 700ms ease;
@@ -729,6 +776,11 @@ html, body {
 
       &.logo-content {
 
+        p {
+          font-family: "Zona Pro", serif;
+          color: rgb( 115, 115, 115 );
+        }
+
         a {
           display: block;
           color: #dbdbdb;
@@ -746,6 +798,8 @@ html, body {
 
       li a {
         color: #ffffff;
+        font-size: 12px;
+        font-family: "Zona Pro", serif;
 
         &:hover, &:focus, &:active {
           color: #ffffff;
@@ -758,6 +812,7 @@ html, body {
       h3 {
         color: #44bbff;
         font-weight: 100;
+        font-family: "Zona Pro", serif;
         margin-bottom: 15px;
       }
 
@@ -890,6 +945,7 @@ html, body {
     color: #ffffff;
     text-align: center;
     font-size: 18px;
+    font-family: "Zona Pro", serif;
   }
 
   .follow-us, .newsletter {
