@@ -38,24 +38,29 @@ $(document).ready(function () {
         var delta = e.originalEvent.wheelDelta * -1
             || e.originalEvent.detail;
 
-        if (delta > 0 && lastTop >= 0 && lastTop + delta < spec) {
+        if (scrolling) {
             e.preventDefault();
-            scrolling = true;
-            $('#slider').stop().animate({opacity: 0}, 500);
-            $('body').stop().animate({scrollTop: spec}, 500, function () {
-                scrolling = false;
-                lastTop = nextTop;
-            });
+            return;
         } else {
-            nextTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
-            if (delta < 0 && nextTop <= spec) {
+            if (delta > 0 && lastTop >= 0 && lastTop + delta < spec) {
                 e.preventDefault();
                 scrolling = true;
-                $('#slider').stop().animate({opacity: 1}, 500);
-                $('body').stop().animate({scrollTop: 0}, 500, function () {
+                $('#slider').stop().animate({opacity: 0}, 500);
+                $('body').stop().animate({scrollTop: spec}, 500, function () {
                     scrolling = false;
                     lastTop = nextTop;
                 });
+            } else {
+                nextTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+                if (delta < 0 && nextTop <= spec) {
+                    e.preventDefault();
+                    scrolling = true;
+                    $('#slider').stop().animate({opacity: 1}, 500);
+                    $('body').stop().animate({scrollTop: 0}, 500, function () {
+                        scrolling = false;
+                        lastTop = nextTop;
+                    });
+                }
             }
         }
     });
