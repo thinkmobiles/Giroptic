@@ -24,7 +24,7 @@ class homep_widget extends WP_Widget {
 
 // FRONT-END 
     public function widget($args, $instance) {
-        $name = apply_filters('widget_name', $instance['name']);
+        $name = $instance['name'];
         $title = apply_filters('widget_title', $instance['title']);
         $link = apply_filters('widget_link', $instance['link']);
         $description = apply_filters('widget_description', $instance['description']);
@@ -39,13 +39,13 @@ class homep_widget extends WP_Widget {
         echo $args['before_widget'];
         ?>
         
-        <div class="block <?php echo $size?> <?php echo $type?> <?php if($img_position == 'img-center-middle' || $type == "white"): echo 'table'; endif?>">
+        <div class="block <?php echo $size?> <?php echo $type?> <?php if($img_position == 'img-center' || $type == "white" || $img_position == 'img-left'): echo 'table'; endif?>">
             <h2 class="main-title">
-                <?php echo $args['before_name'] . $name . $args['after_name'];?>
+                <?php echo $name;?>
             </h2>
 
             <?php if (!empty($image_uri)): ?>
-                <div class="img <?php echo $img_position?>">
+                <div class="img <?php echo $img_position?> <?php if($type == 'dark-grey') echo 'opacity50' ?>" >
                     <img
                         src="<?php echo $image_uri;?>" 
                         alt="img"
@@ -184,13 +184,13 @@ class homep_widget extends WP_Widget {
                 <option value='img-right'<?php echo ($img_position == 'img-right') ? 'selected' : ''; ?>>
                     Right
                 </option>
-                <option value='img-full-left'<?php echo ($img_position == 'img-full-left') ? 'selected' : ''; ?>>
+                <option value='img-left'<?php echo ($img_position == 'img-left') ? 'selected' : ''; ?>>
                     Left
                 </option> 
-                <option value='img-center-middle'<?php echo ($img_position == 'img-center-middle') ? 'selected' : ''; ?>>
+                <option value='img-center'<?php echo ($img_position == 'img-middle') ? 'selected' : ''; ?>>
                     Center
                 </option> 
-                <option value='img-full-top'<?php echo ($img_position == 'img-full-top') ? 'selected' : ''; ?>>
+                <option value='img-full'<?php echo ($img_position == 'img-full') ? 'selected' : ''; ?>>
                     Full
                 </option> 
             </select>
