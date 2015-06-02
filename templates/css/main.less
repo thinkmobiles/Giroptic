@@ -419,9 +419,56 @@ body {
     top: 200px;
     left: 50px;
     max-height: 700px;
-    max-width: 90%;
+    max-width: 450px;
     height: 80%;
-    display: none;
+    //display: none;
+
+    -moz-animation-duration: 20s;
+    -webkit-animation-duration: 20s;
+    animation-duration: 20s;
+    -moz-animation-name: slidein;
+    -webkit-animation-name: slidein;
+    animation-name: slidein;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -moz-animation-direction: alternate;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-timing-function: linear;
+  }
+}
+
+@-moz-keyframes slidein {
+  from {
+    left: ~"calc(100% - 500px)";
+  }
+
+  to {
+    left: 50px;
+  }
+}
+
+@-webkit-keyframes slidein {
+  from {
+    left: ~"calc(100% - 500px)";
+  }
+
+  to {
+    left: 50px;
+  }
+}
+
+@keyframes slidein {
+  from {
+    left: ~"calc(100% - 500px)";
+  }
+
+  to {
+    left: 50px;
   }
 }
 
@@ -1200,19 +1247,29 @@ body {
     outline: none;
     outline-offset: 0;
 
+    &.blue {
+      background-color: #44bbff;
+      border: 1px solid #44bbff;
+    }
+
+    &.grey {
+      background-color: #636363;
+      border: 1px solid #636363;
+    }
+
     &:active, &:focus, &:hover {
       outline: none;
       outline-offset: 0;
       //box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
       box-shadow: none;
-    }
+      background: transparent;
 
-    &.blue {
-      background-color: #44bbff;
-    }
-
-    &.grey {
-      background-color: #636363;
+      &.blue {
+        color: #44bbff;
+      }
+      &.grey {
+        color: #636363;
+      }
     }
   }
 }
